@@ -1,0 +1,314 @@
+.home-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+
+.title{
+  font-size: 22px;
+}
+
+/* Header section */
+.header-section {
+  display: flex;
+  align-items: center;
+  
+}
+ 
+
+ 
+
+ 
+.location-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+/* Slider */
+.slider {
+  width: 100%;
+  height: 200px;
+  margin: 0 auto 20px auto;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Cards */
+ 
+
+.card {
+  background: #fff;
+ 
+  border-radius: 12px;
+   
+  text-align: center;
+  position: relative;
+ 
+  overflow: hidden;
+}
+
+.card-image {
+  position: relative;
+  height: 150px;
+  margin-bottom: 10px;
+  border-radius: 12px ;
+  background: linear-gradient(to bottom right, #FEE4E2, #FF9890); /* Gradient rangi */
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.basket-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.basket-icon img {
+  width: 20px;
+  height: 20px;
+}
+
+.basket-icon.active {
+  background-color: #90f306;
+}
+
+.price {
+  color: #f30606;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.title {
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+  text-align: left;
+  white-space: nowrap; /* Yozuvlar bir qatorda bo'ladi */
+  overflow: hidden;    /* Agar matn juda uzun bo'lsa, ko'rinmasligini ta'minlaydi */
+  text-overflow: ellipsis; /* Agar matn uzun bo'lsa, uchiga "..." qo'shadi */
+}
+
+
+/* Search icon wrapper */
+ 
+ 
+/* Mobile view adjustments */
+@media (max-width: 600px) {
+  
+
+  .slider {
+    height: 150px;
+  }
+
+  .header-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+ 
+}
+
+.card-title{
+  font-size: 16px;
+}
+
+
+
+
+
+/* Swiper Container */
+/* Slider Styling */
+
+
+
+/* Custom Slider */
+.custom-slider {
+  width: 100%; /* Set the desired width */
+  height: 180px; /* Set the desired height */
+  position: relative;
+  overflow: hidden;
+  gap: 0px; /* No gap between slides */
+  border-radius: 32px ; /* Apply the border radius */
+  opacity: 1; /* Set opacity to 1 for visible slider */
+}
+
+.slider-content {
+  display: flex;
+  transition: transform 0.8s ease-in-out; /* Smooth transition */
+}
+
+.slider-item {
+  min-width: 100%;
+  height: 100%; /* Ensure the height of each slide matches the container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-img {
+  width: 100%;
+  height: 100%; /* Adjust image height to fill the slider container */
+  object-fit: cover;
+  border-radius: 32px 0 0 0; /* Apply the same border radius to images */
+}
+
+/* Pagination Bullets */
+.slider-pagination {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+}
+
+.pagination-bullet {
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0.6;
+  cursor: pointer;
+  
+  transition: all 0.3s ease; 
+
+}
+
+.pagination-bullet.active {
+  opacity: 1;
+  transform: scale(1.2);
+  width: 30px;
+  height: 10px;
+  border-radius: 5px;
+}
+
+
+/* Cards container */
+.card-container {
+  display: flex;
+  flex-wrap: wrap; /* Wrap qilib qo‘shimcha qator yarating */
+  gap: 16px; /* Kartalar orasidagi masofa */
+  justify-content: space-between; /* Kartalar orasida teng masofa */
+}
+
+/* Individual cards */
+.card {
+  flex: 1 1 calc(50% - 16px); /* Har bir karta kengligi 50% minus masofa */
+  box-sizing: border-box; /* Padding va borderni hisoblash */
+}
+
+
+
+
+
+.header-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  gap: 10px;
+}
+
+.search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-icon {
+  position: absolute;
+  color: #aaa;
+  font-size: 18px;
+  cursor: pointer;
+  left: 20px;
+  width: 24px;
+  height: 24px;
+}
+
+.search-input {
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: width 0.3s ease-in-out;
+  border-radius: 50%;
+}
+
+.search-input:focus {
+  width: 120px;
+  border: 2px solid #eeecec; /* Green border on focus */
+  border-radius: 32px;
+  padding: 0 0 0 60px;
+  height: 50px;
+}
+
+.location-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 200px;
+  height: 40px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22.4px;
+  letter-spacing: 0.2px;
+  background-color: #ff0000; /* Light gray background */
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out, background-color 0.3s ease-in-out; 
+}
+ 
+
+.location-btn .location-text {
+  display: block;
+  font-family: Urbanist, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22.4px;
+  letter-spacing: 0.2px;
+  text-align: left;
+  color: #333; /* Default text color */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+ 
+
+.location-btn img {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+/* When the search input is focused, show the location text and adjust style */
+ 

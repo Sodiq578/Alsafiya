@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import HomePage from './pages/HomePage';
+import CategoryPage from './pages/CategoryPage';
+import BasketPage from './pages/BasketPage';
+import ProfilePage from './pages/ProfilePage';
+import './index.css';
 
-function App() {
+const App = () => {
+  const [cartItems, setCartItems] = useState([]); // Savat uchun state
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route 
+          path="/" 
+          element={<HomePage setCartItems={setCartItems} />} 
+        />
+        <Route 
+          path="/categories" 
+          element={<CategoryPage />} 
+        />
+        <Route 
+          path="/basket" 
+          element={<BasketPage cartItems={cartItems} />} 
+        />
+        <Route 
+          path="/profile" 
+          element={<ProfilePage />} 
+        />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

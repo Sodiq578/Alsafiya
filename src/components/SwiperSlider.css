@@ -1,0 +1,12 @@
+.slider-item {
+    height: 150px;
+    background: linear-gradient(135deg, #1890ff, #87e8de);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 10px;
+  }
+  

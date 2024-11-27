@@ -1,0 +1,51 @@
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background: #FFFFFFB2; /* Shaffof oq rang */
+  backdrop-filter: blur(34px); /* Fonni 34px ga xiralashtirish */
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  transition: all 0.3s ease; /* To'liq navbar animatsiyasi */
+  padding: 10px 0;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #333; /* Boshlang'ich rang */
+  font-size: 14px;
+  transition: color 0.3s ease, transform 0.3s ease; /* Yozuvning rangi va animatsiya */
+}
+
+.nav-item img {
+  width: 26px; /* Rasmlarning o'lchami 26px */
+  height: 26px;
+  transition: all 0.3s ease; /* Rasmlarga animatsiya */
+}
+
+.nav-item span {
+  font-size: 14px;
+  margin-top: 5px;
+  transition: color 0.3s ease; /* Yumoq rang o'zgarishi */
+}
+
+.nav-item:hover {
+  transform: translateY(-5px); /* Hover holatida yuqoriga ko'tarilish */
+}
+
+.nav-item.active, .nav-item:hover {
+  color: #F31313; /* Yozuv va ikonkalarni faollashganda rangini o'zgartirish */
+}
+
+.nav-item.active img {
+  filter: brightness(0) saturate(100%) invert(23%) sepia(53%) saturate(390%) hue-rotate(348deg) brightness(90%) contrast(97%);
+  /* Ikonkaga rang o'zgartirish */
+}
