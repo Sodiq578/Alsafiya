@@ -1,153 +1,155 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './HomePage.css';
-import { FaSearch } from 'react-icons/fa'; // Qidiruv ikonkasi
-import basketIcon from '../assets/Heart.svg'; // Savat ikonkasi uchun to'g'ri yo'l
-import Location from "../assets/location.svg";
+import { FaSearch } from 'react-icons/fa';
+import { MdClear } from 'react-icons/md';
+import basketIcon from '../assets/Heart.svg';
+import Location from '../assets/location.svg';
+import SwiperSlider from '../components/SwiperSlider';
+import CardImg from '../assets/image.png';
 
-const HomePage = () => {
-  const [cartItems, setCartItems] = useState([]); // Savatcha uchun holat
-  const [activeIndex, setActiveIndex] = useState(0); // Slayderning faol indexi
-  const [startTouch, setStartTouch] = useState(0); // Sensorli ekranga teginishni boshqarish
+const HomePage = ({ setCartItems, cartItems = [] }) => {
+  const [inputValue, setInputValue] = useState('');
   const [isFocused, setIsFocused] = useState(false);
-  const [inputValue, setInputValue] = useState(""); // Input value uchun holat
-  const [isActive, setIsActive] = useState(false); // Location buttonni aktivlashtirish uchun holat
+  const [filteredCards, setFilteredCards] = useState([]);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [locationText, setLocationText] = useState(
+    localStorage.getItem('locationText') || 'Тошкент, Мирзо Улугбек район'
+  );
+
+  const searchInputRef = useRef(null);
+  const map = useRef(null);
 
   const cards = [
-    { id: 1, title: 'Gumma Kartoshkali', price: '5,000 UZS', image: 'https://picsum.photos/200/300?random=1' },
-    { id: 2, title: 'Gumma Qovurilgan', price: '5,000 UZS', image: 'https://picsum.photos/200/300?random=2' },
-    { id: 3, title: 'Gumma Go‘shtli', price: '5,000 UZS', image: 'https://picsum.photos/200/300?random=3' },
-    { id: 4, title: 'Gumma Sariyog‘li', price: '5,000 UZS', image: 'https://picsum.photos/200/300?random=4' },
+    { id: 1, title: 'Palov Uzumli', price: '8,000 UZS', image: CardImg, },
+    { id: 2, title: 'Somsa Go‘shtli', price: '5,000 UZS', image: CardImg },
+    { id: 3, title: 'Shashlik Qo‘ziqorinli', price: '10,000 UZS', image: CardImg },
   ];
 
-  const handleIconClick = (card) => {
-    if (cartItems.includes(card)) {
-      setCartItems(cartItems.filter(item => item.id !== card.id));
-    } else {
-      setCartItems([...cartItems, card]);
-    }
-  };
-
-  const handlePrevSlide = () => {
-    setActiveIndex(activeIndex === 0 ? cards.length - 1 : activeIndex - 1);
-  };
-
-  const handleNextSlide = () => {
-    setActiveIndex(activeIndex === cards.length - 1 ? 0 : activeIndex + 1);
-  };
-
   useEffect(() => {
-    const interval = setInterval(() => {
-      handleNextSlide();
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [activeIndex]);
-
-  const handleTouchStart = (e) => {
-    setStartTouch(e.touches[0].clientX);
-  };
-
-  const handleTouchMove = (e) => {
-    const moveTouch = e.touches[0].clientX;
-    if (startTouch - moveTouch > 50) {
-      handleNextSlide();
-    } else if (moveTouch - startTouch > 50) {
-      handlePrevSlide();
-    }
-  };
-
-  const handleFocus = () => {
-    setIsFocused(true);
-  };
-
-  const handleBlur = () => {
-    setIsFocused(false);
-  };
+    setFilteredCards(cards);
+  }, []);
 
   const handleSearchInputChange = (e) => {
-    setInputValue(e.target.value);
+    const value = e.target.value;
+    setInputValue(value);
+
+    const filtered = value
+      ? cards.filter((card) => card.title.toLowerCase().includes(value.toLowerCase()))
+      : cards;
+
+    setFilteredCards(filtered);
+  };
+
+  const handleClearInput = () => {
+    setInputValue('');
+    setFilteredCards(cards);
+    searchInputRef.current.focus();
+  };
+
+  const handleIconClick = (card) => {
+    if (!cartItems.some((item) => item.id === card.id)) {
+      setCartItems((prevItems) => [...prevItems, { ...card, quantity: 1 }]);
+    }
+  };
+
+  const initializeYandexMap = () => {
+    window.ymaps.ready(() => {
+      map.current = new window.ymaps.Map('yandex-map', {
+        center: [41.2995, 69.2701], // Tashkent default location
+        zoom: 12,
+      });
+
+      const placemark = new window.ymaps.Placemark([41.2995, 69.2701], {
+        balloonContent: locationText,
+      });
+
+      map.current.geoObjects.add(placemark);
+
+      map.current.events.add('click', (e) => {
+        const coords = e.get('coords');
+        const geocoder = window.ymaps.geocode(coords);
+
+        geocoder.then((res) => {
+          const firstGeoObject = res.geoObjects.get(0);
+          if (firstGeoObject) {
+            const address = firstGeoObject.getAddressLine();
+            setLocationText(address);
+          }
+        });
+      });
+    });
   };
 
   const handleLocationButtonClick = () => {
-    setInputValue(""); // Inputni tozalash
-    setIsActive(!isActive); // Buttonni faollashtirish / faolligini olib tashlash
+    setIsModalVisible(true);
+    initializeYandexMap();
+  };
+
+  const handleLocationSave = () => {
+    localStorage.setItem('locationText', locationText);
+    setIsModalVisible(false);
+    alert(`Manzil saqlandi: ${locationText}`);
   };
 
   return (
     <div className="home-page">
-      {/* Qidiruv va joylashuv */}
       <div className="header-box">
         <form className="search-form">
-          <FaSearch
-            className="search-icon"
-            onClick={handleFocus} // Ikonka bosilganda inputga fokus qo'yish
-          />
-          <input
-            type="text"
-            className="search-input"
-            name="search"
-            value={inputValue} // Inputni boshqarish
-            onChange={handleSearchInputChange}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-          />
+          <div className={`input-wrapper ${isFocused ? 'focused' : ''}`}>
+            <FaSearch className="search-icon" />
+            <input
+              type="text"
+              ref={searchInputRef}
+              className="search-input"
+              value={inputValue}
+              onChange={handleSearchInputChange}
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => setIsFocused(false)}
+            />
+            {inputValue && (
+              <MdClear className="clear-icon" onClick={handleClearInput} />
+            )}
+          </div>
         </form>
-        <button 
-          className={`location-btn ${isActive ? 'active' : ''}`}
-          onClick={handleLocationButtonClick}
-        >
-          <img src={Location} alt="Location Icon" />
-          {!isFocused && <span className="location-text">Ташкент, Мирзо Улугбек район, Карасув-3, улица Мингбулок, 38</span>}
-        </button>
+        {!isFocused && (
+          <button className="btn-location" onClick={handleLocationButtonClick}>
+            <img src={Location} alt="Location Icon" />
+            <span className="location-text">{locationText}</span>
+          </button>
+        )}
       </div>
 
-      {/* Custom Slider */}
-      <div className="custom-slider" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
-        <div className="slider-content" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
-          {cards.map(card => (
-            <div className="slider-item" key={card.id}>
-              <img src={card.image} alt="Slider" className="slider-img" />
-            </div>
-          ))}
-        </div>
+      <SwiperSlider cards={cards} />
 
-        {/* Slider Pagination */}
-        <div className="slider-pagination">
-          {cards.map((_, index) => (
-            <span
-              key={index}
-              className={`pagination-bullet ${index === activeIndex ? 'active' : ''}`}
-              onClick={() => setActiveIndex(index)}
-            ></span>
-          ))}
-        </div>
-
-        {/* Slider Controls */}
-        <div className="slider-controls">
-          <button className="prev-slide" onClick={handlePrevSlide}>❮</button>
-          <button className="next-slide" onClick={handleNextSlide}>❯</button>
-        </div>
-      </div>
-
-      {/* Cardlar */}
       <h1 className="title">Sotuv Xitlari</h1>
       <div className="card-container">
-        {cards.map(card => (
+        {filteredCards.map((card) => (
           <div className="card" key={card.id}>
-            <div className="card-image">
-              <img src={card.image} alt={card.title} />
-              <div
-                className={`basket-icon ${cartItems.includes(card) ? 'active' : ''}`}
-                onClick={() => handleIconClick(card)}
-              >
-                <img src={basketIcon} alt="Basket" />
-              </div>
-            </div>
+            <img src={card.image} alt={card.title} className="card-image" />
             <p className="price">{card.price}</p>
             <h3 className="card-title">{card.title}</h3>
+            <button className="basket-icon" onClick={() => handleIconClick(card)}>
+              <img src={basketIcon} alt="Add to basket" />
+            </button>
           </div>
         ))}
       </div>
+
+      {isModalVisible && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <button className="close-modal" onClick={() => setIsModalVisible(false)}>
+              Close
+            </button>
+            <h2>Manzilni belgilang</h2>
+            <p>Hozirgi Manzil: {locationText}</p>
+            <div id="yandex-map" style={{ width: '100%', height: '300px' }}></div>
+            <button className="save-location-btn" onClick={handleLocationSave}>
+              Manzilni saqlash
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

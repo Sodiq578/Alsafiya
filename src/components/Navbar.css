@@ -6,11 +6,11 @@
   bottom: 0;
   width: 100%;
   height: 60px;
-  background: #FFFFFFB2; /* Shaffof oq rang */
-  backdrop-filter: blur(34px); /* Fonni 34px ga xiralashtirish */
+  background: #FFFFFFB2; /* Transparent white background */
+  backdrop-filter: blur(34px); /* 34px blur effect on background */
   box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.3);
   z-index: 100;
-  transition: all 0.3s ease; /* To'liq navbar animatsiyasi */
+  transition: all 0.3s ease; /* Smooth transition for navbar */
   padding: 10px 0;
 }
 
@@ -20,32 +20,39 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  color: #333; /* Boshlang'ich rang */
+  color: #333; /* Default text color */
   font-size: 14px;
-  transition: color 0.3s ease, transform 0.3s ease; /* Yozuvning rangi va animatsiya */
+  transition: color 0.3s ease, transform 0.3s ease; /* Transition for text color and transform */
 }
 
 .nav-item img {
-  width: 26px; /* Rasmlarning o'lchami 26px */
+  width: 26px; /* Icon size */
   height: 26px;
-  transition: all 0.3s ease; /* Rasmlarga animatsiya */
+  transition: all 0.3s ease; /* Transition for icon color */
 }
 
 .nav-item span {
   font-size: 14px;
   margin-top: 5px;
-  transition: color 0.3s ease; /* Yumoq rang o'zgarishi */
+  transition: color 0.3s ease; /* Smooth transition for text color */
 }
 
 .nav-item:hover {
-  transform: translateY(-5px); /* Hover holatida yuqoriga ko'tarilish */
+  transform: translateY(-5px); /* Move up on hover */
 }
 
 .nav-item.active, .nav-item:hover {
-  color: #F31313; /* Yozuv va ikonkalarni faollashganda rangini o'zgartirish */
+  color: #F31313; /* Red color for active and hover states */
 }
 
 .nav-item.active img {
-  filter: brightness(0) saturate(100%) invert(23%) sepia(53%) saturate(390%) hue-rotate(348deg) brightness(90%) contrast(97%);
-  /* Ikonkaga rang o'zgartirish */
+  filter: brightness(0) saturate(100%) invert(28%) sepia(72%) saturate(4234%) hue-rotate(358deg) brightness(98%) contrast(97%); /* Apply red filter to active icon */
+}
+
+/* Optional: If you want the icon to go back to its original color when not active */
+.nav-item img {
+  width: 26px; /* Icon size */
+  height: 26px;
+  transition: filter 0.3s ease; /* Transition for icon color */
+  filter: gray; /* Default color for inactive icons */
 }

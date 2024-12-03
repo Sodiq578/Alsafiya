@@ -1,130 +1,165 @@
-/* BasketPage.css */
-
 .basket-page {
-    padding: 20px;
-    font-family: Arial, sans-serif;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+.basket-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 24px;
+}
+
+.empty-basket {
+  text-align: center;
+  color: #777;
+  font-size: 18px;
+}
+
+.basket-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Ikki kartani bir qatorda ko'rsatish */
+  gap: 20px;
+  justify-items: center;
+}
+
+.basket-card {
+  position: relative;
+  width: 100%;
+  max-width: 180px;  /* Kartaning maksimal kengligi */
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.basket-card:hover {
+  transform: scale(1.05);
+}
+
+.delete-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff4d4f;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image {
+  width: 100%;
+  max-width: 120px; /* Mahsulot rasmining maksimal kengligi */
+  height: auto;
+  margin: 0 auto 10px;
+  object-fit: cover;
+}
+
+.product-title {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+  max-height: 45px; /* Nomni kesish, agar uzun bo'lsa */
+  overflow: hidden;
+}
+
+.product-price {
+  font-size: 16px; /* Narxni kattalashtirish */
+  color: #ff5722;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background-color: #F2F4F7;
+  width: 100%; /* Kengligini 100% qilib qo'yish */
+  max-width: 120px;  /* Maksimal kengligi */
+  margin: 0 auto;
+  padding: 8px 10px;
+  border-radius: 100px;
+}
+
+.quantity-button {
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.total-price-item {
+  font-size: 16px;
+  color: #ff5722;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.total-price {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Media querylar orqali mobilga moslashtirish */
+@media (max-width: 768px) {
+  .basket-items {
+    grid-template-columns: repeat(2, 1fr); /* Mobilda ham ikkita karta bir qatorda */
   }
-  
-  .basket-page h1 {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .basket-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .basket-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid #ddd;
+
+  .basket-card {
+    max-width: 150px;  /* Kartaning maksimal kengligini kichraytirish */
     padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
   }
-  
-  .basket-item img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-  
-  .item-details {
-    flex-grow: 1;
-    padding-left: 20px;
-  }
-  
-  .item-details h3 {
-    font-size: 16px;
-    color: #333;
-    margin: 0;
-  }
-  
-  .item-details .price {
+
+  .product-title {
     font-size: 14px;
-    color: #666;
-    margin: 5px 0;
+    max-height: 35px;
+    overflow: hidden;
   }
-  
-  .remove-item {
-    background-color: #FF3B30;
-    color: #fff;
-    padding: 5px 10px;
+
+  .product-price {
     font-size: 14px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
   }
-  
-  .remove-item:hover {
-    background-color: #FF2A00;
-  }
-  
-  .empty-basket-message {
-    text-align: center;
+ 
+  .quantity-button {
+    width: 30px;
+    height: 30px;
     font-size: 18px;
-    color: #666;
-    margin-top: 50px;
   }
-  
-  /* Checkout Section */
-  .checkout-container {
-    margin-top: 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 2px solid #ddd;
-    padding-top: 20px;
+
+  .quantity {
+    font-size: 14px;
   }
-  
-  .checkout-total {
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  .checkout-button {
-    background-color: #28A745;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+
+  .total-price {
     font-size: 16px;
-    transition: background-color 0.3s ease;
   }
-  
-  .checkout-button:hover {
-    background-color: #218838;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .basket-item {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .item-details {
-      padding-left: 0;
-      margin-top: 10px;
-    }
-  
-    .checkout-container {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .checkout-button {
-      margin-top: 20px;
-    }
-  }
-  
+}
