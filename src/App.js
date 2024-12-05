@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import SplashScreen from './components/SplashScreen';
-import PhoneAuth from './pages/PhoneAuth';
-import ProfilePage from './pages/ProfilePage';
 import HomePage from './pages/HomePage';
 import BasketPage from './pages/BasketPage';
-import CategoryPage from './pages/CategoryPage'; // Import CategoryPage
+import CategoryPage from './pages/CategoryPage';
+import ProfilePage from './pages/ProfilePage';
 import Navbar from './components/Navbar';
 import './index.css';
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(true);
-  const [phone, setPhone] = useState(localStorage.getItem('userPhone') || null);
   const [location, setLocation] = useState(localStorage.getItem('userLocation') || '');
   const [cartItems, setCartItems] = useState([]);
 
@@ -29,92 +27,61 @@ const App = () => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const handleLogin = (phoneNumber) => {
-    setPhone(phoneNumber);
-    localStorage.setItem('userPhone', phoneNumber);
-  };
-
   return showSplash ? (
     <SplashScreen />
   ) : (
     <Router>
-      {phone && <Navbar />}
+      <Navbar />
       <Routes>
         <Route
           path="/"
           element={
-            phone ? (
-              <Navigate to="/home" />
-            ) : (
-              <PhoneAuth onLogin={handleLogin} />
-            )
+            <HomePage
+              userLocation={location}
+              cartItems={cartItems}
+              setCartItems={setCartItems}
+            />
           }
         />
         <Route
-          path="/home"
+          path="/categories"
           element={
-            phone ? (
-              <HomePage
-                userLocation={location}
-                cartItems={cartItems}
-                setCartItems={setCartItems}
-              />
-            ) : (
-              <Navigate to="/" />
-            )
-          }
-        />
-        <Route
-          path="/categories" // Corrected path
-          element={
-            phone ? (
-              <CategoryPage
-                userLocation={location}
-                cartItems={cartItems}
-                setCartItems={setCartItems}
-              />
-            ) : (
-              <Navigate to="/" />
-            )
+            <CategoryPage
+              userLocation={location}
+              cartItems={cartItems}
+              setCartItems={setCartItems}
+            />
           }
         />
         <Route
           path="/profile"
-          element={
-            phone ? (
-              <ProfilePage phone={phone} location={location} />
-            ) : (
-              <Navigate to="/" />
-            )
-          }
+          element={<ProfilePage location={location} />}
         />
         <Route
           path="/basket"
           element={
-            phone ? (
-              <BasketPage
-                cartItems={cartItems}
-                onRemove={(id) => setCartItems(cartItems.filter((item) => item.id !== id))}
-                onIncrease={(id) =>
-                  setCartItems(
-                    cartItems.map((item) =>
-                      item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-                    )
+            <BasketPage
+              cartItems={cartItems}
+              onRemove={(id) =>
+                setCartItems(cartItems.filter((item) => item.id !== id))
+              }
+              onIncrease={(id) =>
+                setCartItems(
+                  cartItems.map((item) =>
+                    item.id === id ? { ...item, quantity: item.quantity + 1 } : item
                   )
-                }
-                onDecrease={(id) =>
-                  setCartItems(
-                    cartItems.map((item) =>
-                      item.id === id && item.quantity > 1
-                        ? { ...item, quantity: item.quantity - 1 }
-                        : item
-                    )
+                )
+              }
+              onDecrease={(id) =>
+                setCartItems(
+                  cartItems.map((item) =>
+                    item.id === id && item.quantity > 1
+                      ? { ...item, quantity: item.quantity - 1 }
+                      : item
                   )
-                }
-              />
-            ) : (
-              <Navigate to="/" />
-            )
+                )
+              }
+            />
           }
         />
       </Routes>

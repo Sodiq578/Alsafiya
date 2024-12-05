@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CardImg from '../assets/image.png';
-import './HomePage.css';
+import './CategoryPage.css';
 
 const generateProducts = () => {
   const baseProducts = [

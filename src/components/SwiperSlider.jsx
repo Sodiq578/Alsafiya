@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './SwiperSlider.css';
-import SwiperImg from "../assets/user_image_20241202_111508296c875157d.png"; // Import your image
+import SwiperImg from "../assets/alsafiaslider.png"; // Import your image
 
 const SwiperSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0); // Active index for the slider

@@ -24,54 +24,9 @@
     padding: 0 10px;
   }
 
-  .card {
-    background: #fff;
-    border-radius: 16px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    width: 220px; /* Planshet uchun kengroq kartalar */
-    height: 270px;
-    margin-bottom: 20px;
-  }
+  
 
-  .card-image {
-    height: 160px;
-    margin-bottom: 15px;
-    border-radius: 16px;
-  }
-
-  .card-title {
-    font-size: 18px;
-    margin: 10px 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .price {
-    color: #f30606;
-    font-weight: 600;
-    text-align: left;
-  }
-
-  .btn-location {
-    width: 60%;
-    height: 50px;
-    font-size: 18px;
-  }
-
-  .modal-content {
-    width: 700px;
-  }
-
-  .save-button {
-    background-color: #28a745;
-    color: white;
-    padding: 12px 24px;
-    font-size: 16px;
-    border-radius: 6px;
-  }
+   
 }
 
 /* Desktop (katta ekranlar) uchun (1025px va undan katta) */
@@ -108,25 +63,13 @@
     text-align: center;
     position: relative;
     overflow: hidden;
-    width: 280px; /* Katta ekran uchun kengroq kartalar */
-    height: 320px;
+    width: 300px; /* Katta ekran uchun kengroq kartalar */
+    height: 200px;
     margin-bottom: 24px;
+
   }
 
-  .card-image {
-    height: 180px;
-    margin-bottom: 20px;
-    border-radius: 20px;
-    background: linear-gradient(to bottom right, #FEE4E2, #FF9890);
-  }
-
-  .card-title {
-    font-size: 20px;
-    margin: 12px 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+ 
 
   .price {
     color: #f30606;
@@ -194,51 +137,8 @@
 
   /* Ensure all cards inside the container follow the same width and height */
  
-  .card-image {
-    position: relative;
-    height: 127px;
-    margin-bottom: 10px;
-    border-radius: 12px;
-    background: linear-gradient(to bottom right, #FEE4E2, #FF9890);
-  }
-
-  .card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-
-  .basket-icon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 32px;
-    height: 32px;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-
-  .basket-icon img {
-    width: 20px;
-    height: 20px;
-  }
-
-  .basket-icon.active {
-    background-color: #90f306;
-  }
-
-  .price {
-    color: #f30606;
-    font-weight: 600;
-    text-align: left;
-
-  }
- 
+  
+    
 
 
  
@@ -250,14 +150,6 @@
     align-items: center;
     position: relative;
   }
-  
-   
-  
- 
- 
- 
-  
- 
   
  
   
@@ -372,23 +264,7 @@
   font-size: 14px;
 }
 
-/* Other styles */
-.basket-icon {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-}
-
-.basket-icon.active img {
-  background-color: green;
-  border-radius: 50%;
-}
-
-.basket-icon img {
-  width: 20px;
-  height: 20px;
-}
+ 
 
  
 .card-title {
@@ -529,7 +405,11 @@
   color: transparent; /* Fokuslangan paytda placeholderni yashirish */
 }
  
- 
+
+
+
+
+
 
 
 
@@ -704,3 +584,104 @@
 
 
 
+
+
+
+.logo{
+  width: 200px;
+  height: auto;
+}
+
+
+
+
+
+
+
+.card-container {
+  display: flex;
+  flex-direction: column; /* Kartalarni vertikal joylashtiradi */
+  align-items: center; /* Kartalarni gorizontal markazlaydi */
+  gap: 20px; /* Kartalar orasidagi masofa */
+  padding: 0 20px;
+}
+
+.card {
+  background: #ffffff03;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  width: 300px; /* Karta kengligi 300px */
+  height: 300px; /* Karta balandligi 380px */
+  margin-bottom: 20px;
+  
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+ 
+
+.card-image {
+  width: 100%;
+  height: 400px; /* Rasm balandligi 200px */
+  object-fit: cover; /* Rasm kartaning o‘lchamiga moslashadi */
+  border-radius: 20px;
+  margin-bottom: 15px;
+  background-color: #FF9C32;
+  padding: 10px;
+}
+
+.card-title {
+  font-size: 18px;
+  margin: 10px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+ 
+
+ 
+ 
+
+
+
+
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+  
+  border-radius: 8px;
+ 
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  max-width: 200px;
+}
+
+.card-title {
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+}
+
+ 
+
+@media (max-width: 600px) {
+  .card {
+    width: 90%; /* Kichik ekranda kartaning kengligini moslashtirish */
+    max-width: 300px; /* Maksimal kenglikni cheklash */
+  }
+
+  .card-image {
+    height: 300px; /* Kichik ekranda rasm balandligini biroz kamaytirish */
+  }
+}
