@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "./BasketPage.css";
+import "./ForPage.css";
 
-const BasketPage = () => {
-  const { state } = useLocation();
-  const { product } = state;
+const ForPage = ({ cartItems }) => {
+  const { id } = useParams();
   const navigate = useNavigate();
+  const product = cartItems.find((item) => item.id.toString() === id);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -15,7 +16,8 @@ const BasketPage = () => {
   });
 
   const [quantity, setQuantity] = useState(1);
-  const totalPrice = product.price * quantity;
+  const [showModal, setShowModal] = useState(false); // Modal oynani boshqarish
+  const totalPrice = product ? product.price * quantity : 0;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,6 +25,12 @@ const BasketPage = () => {
   };
 
   const sendOrderToTelegram = async () => {
+    // Forma to'ldirilganligini tekshirish
+    if (!formData.name || !formData.phone || !formData.address) {
+      alert("Iltimos, barcha kerakli maydonlarni to'ldiring!");
+      return;
+    }
+
     const token = "7747931873:AAEx8TM-ddgYOQtnr6cyGGnT1nzC7ElG4u0";
     const chatId = "5838205785";
 
@@ -45,9 +53,8 @@ const BasketPage = () => {
         )}`
       );
       if (response.ok) {
-        alert("Buyurtma muvaffaqiyatli yuborildi!");
-        setFormData({ name: "", phone: "", address: "", comment: "" });
-        setQuantity(1);
+        // Buyurtma yuborilganida modal oynani ko'rsatish
+        setShowModal(true);
       } else {
         alert("Xatolik yuz berdi, qaytadan urinib ko'ring.");
       }
@@ -57,21 +64,28 @@ const BasketPage = () => {
     }
   };
 
-  return (
-    <div className="basket-page">
-      <div className="basket-product">
-        <img src={product.image} alt={product.title} className="product-image" />
-        <h2>{product.title}</h2>
-        <p>Price: {product.price} UZS</p>
-        <div className="quantity-control">
-          <button onClick={() => setQuantity((prev) => Math.max(prev - 1, 1))}>
-            -
-          </button>
-          <span className="quality">{quantity}</span>
-          <button onClick={() => setQuantity((prev) => prev + 1)}>+</button>
-        </div>
-        <p className="jammi-summa">Jammi: {totalPrice} UZS</p>
+  if (!product) {
+    return (
+      <div className="for-page">
+        <h1>Mahsulot topilmadi</h1>
       </div>
+    );
+  }
+
+  return (
+    <div className="for-page">
+    <div className="product-details">
+  <img src={product.image} alt={product.title} className="product-image" />
+  <h1 className="product-title">{product.title}</h1>
+  <p className="product-price">
+    <strong>Narxi:</strong> {product.price} so'm
+  </p>
+  <p className="product-description">
+    <strong>Malumotlar:</strong> {product.description || "No description available."}
+  </p>
+</div>
+
+      {/* Forma */}
       <div className="customer-details">
         <h3>Buyurtma Ma’lumotlari</h3>
         <input
@@ -104,19 +118,43 @@ const BasketPage = () => {
           value={formData.comment}
           onChange={handleChange}
         ></textarea>
-               <button
-            className="more"
-            onClick={() => navigate(`/product/${product.id}`)}
-          >
-            Batavsil
+        <div className="quantity-control">
+          <button onClick={() => setQuantity((prev) => Math.max(prev - 1, 1))}>
+            -
           </button>
-
-        <button className="sotib-olish" onClick={sendOrderToTelegram}>
-          Buyurtma Berish
-        </button>
+          <span className="quality">{quantity}</span>
+          <button onClick={() => setQuantity((prev) => prev + 1)}>+</button>
+        </div>
+        <p className="jammi-summa">Jammi: {totalPrice} so'm</p>
+        <button
+  style={{ width: "90%" ,
+    marginTop: "80px",
+     
+    color: "white",
+    fontWeight: "bold",
+    borderRadius: "5px"
+  }}
+  className="sotib-olish"
+  onClick={sendOrderToTelegram}
+>
+  Buyurtma Berish
+</button>
       </div>
+
+      {/* Modal Oyna */}
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <p>
+              Sizning buyurtmangiz qabul qilindi. Operatorlarimiz tez orada
+              siz bilan bog'lanishadi!
+            </p>
+            <button onClick={() => navigate("/home")}>OK</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
-export default BasketPage;
+export default ForPage;

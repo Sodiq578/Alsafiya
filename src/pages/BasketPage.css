@@ -7,6 +7,7 @@
   background-color: #f9f9f9;
   min-height: 100vh;
   padding: 0 0 200px 0;
+  background: linear-gradient(135deg, #FFD2B3, #FFF6EB, #F4DDEB, #FEE1E9);
 }
 
 .basket-container {
@@ -54,12 +55,12 @@
 }
 
 .quantity-control button {
-  width: 40px;
+  width: 100px;
   height: 40px;
   border: none;
-  background: #007bff;
+  background: #FF9C32;
   color: white;
-  font-size: 1.2rem;
+  font-size: 2.2rem;
   cursor: pointer;
   border-radius: 5px;
 }
@@ -69,14 +70,29 @@
   font-size: 1.2rem;
 }
 
+
+
+.jammi-summa{
+  font-size: 22px;
+  font-weight: 700;
+  color: #FF9C32;
+
+}
+
+.quality{
+  font-size: 18px;
+  font-weight: 600;
+}
+
 .customer-details {
   flex: 1;
   padding: 20px;
+
 }
 
 .customer-details h3 {
   font-size: 1.5rem;
-  color: #007bff;
+  color: #FF9C32;
   margin-bottom: 20px;
 }
 
@@ -112,6 +128,25 @@
 
 
 
+.customer-details{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.customer-details input{
+  width: 80%;
+  height: 40px;
+}
+
+
+textarea{
+  width: 80% !important;
+  height: 150px;
+}
+
 .order-button {
   width: 100%;
   padding: 15px;
@@ -138,6 +173,62 @@
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
 }
 
+.sotib-olish {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 330px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border: none;
+  border-radius: 5px;
+  background-color: #0cff15;
+  animation: puls 1.5s infinite; /* Animatsiyani qo'shish */
+}
+
+.more{
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 330px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border: none;
+  border-radius: 5px;
+  background-color: #0cd2ff;
+  animation: puls 1.5s infinite;
+  margin: 20px 26px;
+}
+
+/* Puls animatsiyasi */
+@keyframes puls {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    transform: scale(1.05); /* Kichikroq kattalik */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); /* Engilroq soyalar */
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
 
 
 

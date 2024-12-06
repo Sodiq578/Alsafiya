@@ -1,10 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css';
-import Basket from "../assets/navBacket.svg";
 import Home from "../assets/home.svg";
 import Wijet from "../assets/Widget.svg";
-import Union from "../assets/Union.svg";
 import User from "../assets/user.svg";
 
 // Navbar component
@@ -26,13 +24,6 @@ const Navbar = () => {
         <span>Categories</span>
       </NavLink>
       <NavLink 
-        to="/basket" 
-        className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")}
-      >
-        <img src={Basket} alt="basket" />
-        <span>Basket</span>
-      </NavLink>
-      <NavLink 
         to="/profile" 
         className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")}
       >
@@ -44,5 +35,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-

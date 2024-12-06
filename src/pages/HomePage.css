@@ -108,6 +108,8 @@
   .home-page {
     padding: 20px;
     font-family: Arial, sans-serif;
+
+    padding:0 0 100px 0;
   }
 
   
@@ -428,9 +430,7 @@
 
 
 
-.home-page {
-  font-family: Arial, sans-serif;
-}
+ 
 
  
 
@@ -667,7 +667,7 @@
 
 .card-title {
   margin-top: 8px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   text-align: center;
   color: #333;

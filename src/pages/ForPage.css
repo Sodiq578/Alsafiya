@@ -1,0 +1,68 @@
+.for-page {
+    text-align: center;
+    margin: 20px;
+    padding: 20px ;
+    padding-bottom: 200px;
+    background: none; /* Fonni olib tashlash */
+    border: none; /* Agar chegarasi ham bo'lmasin desangiz */
+    box-shadow: none; /* Agar soyalar ham bo'lmasin desangiz */
+}
+
+   
+
+
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modal-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .modal-content button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #0cff15;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .modal-content button:hover {
+    background-color: #09a312;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
