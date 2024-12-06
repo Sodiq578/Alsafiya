@@ -33,8 +33,11 @@ const App = () => {
     <Router>
       <Navbar />
       <Routes>
+        {/* Asosiy sahifaga yo'naltirish */}
+        <Route path="/" element={<Navigate to="/home" />} />
+        
         <Route
-          path="/"
+          path="/home"
           element={
             <HomePage
               userLocation={location}
