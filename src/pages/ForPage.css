@@ -57,8 +57,26 @@
 
 
 
-
-
+.sotib-olish-for{
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border: none;
+  border-radius: 5px;
+  background-color: #0cff15;
+  animation: puls 1.5s infinite; 
+  margin-top: 50px;
+}
 
 
 

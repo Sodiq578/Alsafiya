@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import "./BasketPage.css";
 import "./ForPage.css";
 
 const ForPage = ({ cartItems }) => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const product = cartItems.find((item) => item.id.toString() === id);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -16,8 +14,23 @@ const ForPage = ({ cartItems }) => {
   });
 
   const [quantity, setQuantity] = useState(1);
-  const [showModal, setShowModal] = useState(false); // Modal oynani boshqarish
-  const totalPrice = product ? product.price * quantity : 0;
+  const [showModal, setShowModal] = useState(false);
+
+  const product = cartItems.find((item) => item.id.toString() === id);
+
+  const generateRandomId = () => Math.floor(Math.random() * 1000000);
+  const orderId = generateRandomId();
+
+  if (!product) {
+    return (
+      <div className="error-message">
+        <h2>Mahsulot topilmadi</h2>
+        <button onClick={() => navigate("/home")}>Bosh sahifaga qaytish</button>
+      </div>
+    );
+  }
+
+  const totalPrice = product.price * quantity;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,17 +38,18 @@ const ForPage = ({ cartItems }) => {
   };
 
   const sendOrderToTelegram = async () => {
-    // Forma to'ldirilganligini tekshirish
     if (!formData.name || !formData.phone || !formData.address) {
       alert("Iltimos, barcha kerakli maydonlarni to'ldiring!");
       return;
     }
 
     const token = "7747931873:AAEx8TM-ddgYOQtnr6cyGGnT1nzC7ElG4u0";
-    const chatId = "5838205785";
+    const personalChatId = "5838205785";
+    const groupChatId = "-4088640919";
 
     const message = `
 🆕 Yangi Buyurtma:
+🆔 Buyurtma ID: ${orderId}
 👤 Ism: ${formData.name}
 📞 Telefon: ${formData.phone}
 📍 Manzil: ${formData.address}
@@ -47,14 +61,20 @@ const ForPage = ({ cartItems }) => {
     `;
 
     try {
-      const response = await fetch(
-        `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(
+      const personalResponse = await fetch(
+        `https://api.telegram.org/bot${token}/sendMessage?chat_id=${personalChatId}&text=${encodeURIComponent(
           message
         )}`
       );
-      if (response.ok) {
-        // Buyurtma yuborilganida modal oynani ko'rsatish
-        setShowModal(true);
+
+      const groupResponse = await fetch(
+        `https://api.telegram.org/bot${token}/sendMessage?chat_id=${groupChatId}&text=${encodeURIComponent(
+          message
+        )}`
+      );
+
+      if (personalResponse.ok && groupResponse.ok) {
+        setShowModal(true); // Modal oynani ko'rsatish
       } else {
         alert("Xatolik yuz berdi, qaytadan urinib ko'ring.");
       }
@@ -64,28 +84,16 @@ const ForPage = ({ cartItems }) => {
     }
   };
 
-  if (!product) {
-    return (
-      <div className="for-page">
-        <h1>Mahsulot topilmadi</h1>
-      </div>
-    );
-  }
-
   return (
     <div className="for-page">
-    <div className="product-details">
-  <img src={product.image} alt={product.title} className="product-image" />
-  <h1 className="product-title">{product.title}</h1>
-  <p className="product-price">
-    <strong>Narxi:</strong> {product.price} so'm
-  </p>
-  <p className="product-description">
-    <strong>Malumotlar:</strong> {product.description || "No description available."}
-  </p>
-</div>
+      <div className="product-details">
+        <img src={product.image} alt={product.title} className="product-image" />
+        <h1 className="product-title">{product.title}</h1>
+        <p className="product-price">
+          <strong>Narxi:</strong> {product.price} UZS
+        </p>
+      </div>
 
-      {/* Forma */}
       <div className="customer-details">
         <h3>Buyurtma Ma’lumotlari</h3>
         <input
@@ -125,30 +133,18 @@ const ForPage = ({ cartItems }) => {
           <span className="quality">{quantity}</span>
           <button onClick={() => setQuantity((prev) => prev + 1)}>+</button>
         </div>
-        <p className="jammi-summa">Jammi: {totalPrice} so'm</p>
-        <button
-  style={{ width: "90%" ,
-    marginTop: "80px",
-     
-    color: "white",
-    fontWeight: "bold",
-    borderRadius: "5px"
-  }}
-  className="sotib-olish"
-  onClick={sendOrderToTelegram}
->
-  Buyurtma Berish
-</button>
+        <p className="jammi-summa">Jammi: {totalPrice} UZS</p>
+        <button className="sotib-olish-for" onClick={sendOrderToTelegram}>
+          Buyurtma Berish
+        </button>
       </div>
 
       {/* Modal Oyna */}
       {showModal && (
         <div className="modal">
           <div className="modal-content">
-            <p>
-              Sizning buyurtmangiz qabul qilindi. Operatorlarimiz tez orada
-              siz bilan bog'lanishadi!
-            </p>
+            <p>Buyurtma muvaffaqiyatli qabul qilindi!</p>
+            <p>Sizga operatorlarimiz tez orada qo'ng'iroq qilishadi.</p>
             <button onClick={() => navigate("/home")}>OK</button>
           </div>
         </div>

@@ -15,6 +15,7 @@ const BasketPage = () => {
   });
 
   const [quantity, setQuantity] = useState(1);
+  const [showModal, setShowModal] = useState(false); // Modal oynani boshqarish
   const totalPrice = product.price * quantity;
 
   const handleChange = (e) => {
@@ -23,8 +24,14 @@ const BasketPage = () => {
   };
 
   const sendOrderToTelegram = async () => {
-    const token = "7747931873:AAEx8TM-ddgYOQtnr6cyGGnT1nzC7ElG4u0";
-    const chatId = "5838205785";
+    if (!formData.name || !formData.phone || !formData.address) {
+      alert("Iltimos, barcha kerakli maydonlarni to'ldiring!");
+      return;
+    }
+
+    const token = "7747931873:AAEx8TM-ddgYOQtnr6cyGGnT1nzC7ElG4u0"; // Telegram bot tokeni
+    const personalChatId = "5838205785"; // Shaxsiy Telegram chat ID
+    const groupChatId = "-4088640919"; // Guruh chat ID
 
     const message = `
 🆕 Yangi Buyurtma:
@@ -39,13 +46,23 @@ const BasketPage = () => {
     `;
 
     try {
-      const response = await fetch(
-        `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(
+      // Shaxsiy chatga yuborish
+      const personalResponse = await fetch(
+        `https://api.telegram.org/bot${token}/sendMessage?chat_id=${personalChatId}&text=${encodeURIComponent(
           message
         )}`
       );
-      if (response.ok) {
-        alert("Buyurtma muvaffaqiyatli yuborildi!");
+
+      // Guruh chatiga yuborish
+      const groupResponse = await fetch(
+        `https://api.telegram.org/bot${token}/sendMessage?chat_id=${groupChatId}&text=${encodeURIComponent(
+          message
+        )}`
+      );
+
+      // Agar ikkala yuborish ham muvaffaqiyatli bo'lsa, modalni ko'rsatish
+      if (personalResponse.ok && groupResponse.ok) {
+        setShowModal(true); // Modal oynani ko'rsatish
         setFormData({ name: "", phone: "", address: "", comment: "" });
         setQuantity(1);
       } else {
@@ -104,17 +121,27 @@ const BasketPage = () => {
           value={formData.comment}
           onChange={handleChange}
         ></textarea>
-               <button
-            className="more"
-            onClick={() => navigate(`/product/${product.id}`)}
-          >
-            Batavsil
-          </button>
-
-        <button className="sotib-olish" onClick={sendOrderToTelegram}>
+        <button
+          className="more"
+          onClick={() => navigate(`/product/${product.id}`)}
+        >
+          Batavsil
+        </button>
+        <button className=" sotib-olish-backet" onClick={sendOrderToTelegram}>
           Buyurtma Berish
         </button>
       </div>
+
+      {/* Modal Oyna */}
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <p>Buyurtmangiz qabul qilindi!</p>
+            <p>Sizga operatorlarimiz tez orada qo'ng'iroq qilishadi.</p>
+            <button onClick={() => navigate("/home")}>OK</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
