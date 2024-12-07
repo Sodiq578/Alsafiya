@@ -90,7 +90,7 @@ const HomePage = () => {
       </div>
     </div>
       <SwiperSlider cards={cards} />
-      <h1 className="title">Sotuv Xitlari</h1>
+      <h1 className="title">Top Maxsulotlar</h1>
       <div className="card-container">
         {cards.map((card) => (
           <div

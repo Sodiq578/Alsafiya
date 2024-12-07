@@ -154,7 +154,7 @@ const BasketPage = () => {
           value={formData.comment}
           onChange={handleChange}
         ></textarea>
-        <button className="order-button" onClick={sendOrderToTelegram}>
+        <button className="sotib-olish-for" onClick={sendOrderToTelegram}>
           Buyurtma Berish
         </button>
       </div>

@@ -179,7 +179,7 @@ const ForPage = () => {
         </div>
 
         <p className="total-price">Umumiy narx: {totalPrice} UZS</p>
-        <button className="order-button" onClick={sendOrderToTelegram}>
+        <button className="sotib-olish-for" onClick={sendOrderToTelegram}>
           Buyurtma Berish
         </button>
       </div>
