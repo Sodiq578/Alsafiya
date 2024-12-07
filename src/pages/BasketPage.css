@@ -84,12 +84,7 @@
   font-weight: 600;
 }
 
-.customer-details {
-  flex: 1;
-  padding: 20px;
-
-}
-
+ 
 .customer-details h3 {
   font-size: 1.5rem;
   color: #FF9C32;
@@ -147,20 +142,7 @@ textarea{
   height: 150px;
 }
 
-.order-button {
-  width: 100%;
-  padding: 15px;
-  background: linear-gradient(90deg, #007bff, #0056b3);
-  color: white;
-  font-size: 1.1rem;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  text-transform: uppercase;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
+ 
 
 .order-button:hover {
   background: linear-gradient(90deg, #0056b3, #003f7f);
@@ -181,7 +163,7 @@ textarea{
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 330px;
+  width: 300px;
   height: 50px;
   display: flex;
   align-items: center;
@@ -193,26 +175,21 @@ textarea{
   animation: puls 1.5s infinite; /* Animatsiyani qo'shish */
 }
 
-.more{
-  margin-top: 20px;
-  text-align: center;
-  font-size: 1.5rem;
-  color: #fff;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 330px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
+.batavsil-btn {
+  background-color: #26deef;
+  color: white;
   border: none;
+  padding: 10px 15px;
   border-radius: 5px;
-  background-color: #0cd2ff;
-  animation: puls 1.5s infinite;
-  margin: 20px 26px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
+
+.batavsil-btn:hover {
+  background-color: #1cb7d1;
+}
+
 
 /* Puls animatsiyasi */
 @keyframes puls {
@@ -249,3 +226,46 @@ textarea{
 
 
 
+
+
+
+
+
+
+
+/* qor yogish  */
+
+
+
+.basket-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #26deef, #FFF6EB, #edeaec, #e9e8e8);
+  overflow: hidden;
+  padding: 100px 0 300px 0;
+}
+
+.flake-wrapper {
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  animation: falling linear infinite;
+}
+
+.flake path {
+  fill: #fff;
+  opacity: 0.8;
+}
+
+@keyframes falling {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0.5;
+  }
+}

@@ -57,17 +57,7 @@
     padding: 0 20px;
   }
 
-  .card {
-    background: #fff;
-    border-radius: 20px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    width: 300px; /* Katta ekran uchun kengroq kartalar */
-    height: 200px;
-    margin-bottom: 24px;
-
-  }
+  
 
  
 
@@ -124,18 +114,7 @@
     height: 24px;
     margin-right: 8px;
   }
-  .card {
-    background: #fff;
-    border-radius: 12px;
-    text-align: center;
-    position: relative;
-     
-    overflow: hidden;
-    width: 150px; /* Fixed width */
-    height: 215px; /* Fixed height */
-    opacity: 1; /* Visible by default */
-    margin-bottom: 12px; /* Adjust gap between cards */
-  }
+ 
 
   /* Ensure all cards inside the container follow the same width and height */
  
@@ -588,10 +567,28 @@
 
 
 .logo{
-  width: 200px;
+  width: 150px;
+  height: auto;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+
+.logo-container {
+  position: relative;
+  width: 150px;
   height: auto;
 }
 
+ 
+
+.qalpoq {
+  position: absolute;
+  width: 60px; /* Qalpoq hajmini sozlash */
+  height: auto;
+  top: -5px; /* Qalpoqni logotip ustiga ko‘tarish */
+  left: 5px; /* Qalpoqni o‘ngga moslashtirish */
+}
 
 
 
@@ -606,30 +603,22 @@
   padding: 0 20px;
 }
 
-.card {
-  background: #ffffff03;
-  border-radius: 20px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  width: 300px; /* Karta kengligi 300px */
-  height: 300px; /* Karta balandligi 380px */
-  margin-bottom: 20px;
-  
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+ 
 
  
 
 .card-image {
-  width: 100%;
-  height: 400px; /* Rasm balandligi 200px */
+  width: 100%;   
   object-fit: cover; /* Rasm kartaning o‘lchamiga moslashadi */
   border-radius: 20px;
   margin-bottom: 15px;
-  background-color: #FF9C32;
+  background: linear-gradient(135deg, hsl(0, 0%, 100%), #f1fefd);
   padding: 10px;
+  width: 100%;
+  height: auto;
+  max-width: 200px;
 }
+
 
 .card-title {
   font-size: 18px;
@@ -659,11 +648,7 @@
  
 }
 
-.card-image {
-  width: 100%;
-  height: auto;
-  max-width: 200px;
-}
+ 
 
 .card-title {
   margin-top: 8px;
@@ -681,7 +666,49 @@
     max-width: 300px; /* Maksimal kenglikni cheklash */
   }
 
-  .card-image {
-    height: 300px; /* Kichik ekranda rasm balandligini biroz kamaytirish */
+ 
+}
+
+
+
+
+
+
+
+
+
+
+
+ 
+.flake-wrapper {
+  position: absolute;
+  z-index: 20;
+  width: 5px; /* Kichikroq hajm */
+  height: 5px; /* Kichikroq hajm */
+  animation: falling linear infinite;
+}
+
+.flake path {
+  fill: #fff; /* Qorning rangi */
+  opacity: 0.9; /* Biroz shaffof ko'rinish */
+}
+
+@keyframes falling {
+  0% {
+    top: -50px;
+    opacity: 1;
   }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+
+
+.home-page, .card-container {
+  overflow-x: hidden; /* Gorizontal skrollni olib tashlash */
 }
