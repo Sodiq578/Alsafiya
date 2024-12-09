@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./HomePage.css";
-import CardImage from "../assets/CardImage.svg";
+import CardImage from "../assets/omegaCard2.png";
 import HeaderImg from "../assets/headeimg2.png";
 import CardImage2 from "../assets/kist-ul-dori.jpg";
 import cardImage3 from "../assets/black_sid-oil.jpg";
+import { AiOutlineEye } from "react-icons/ai";
+import Logo from "../assets/logo2.svg"
+
 
 // Import React Icons at the top
 import { FaBuilding, FaBox, FaUsers, FaHandshake } from "react-icons/fa";
@@ -52,7 +55,7 @@ const HomePage = () => {
     {
       id: 1,
       title: "Tibbio Tibomed",
-      price: 12000,
+      price: 400000,
       image: CardImage2,
       description: "Tibbio Tibomed kompaniyasi sog‘liqni saqlash sohasida o‘zining yuqori sifatli biologik faol qo‘shimchalari bilan tanilgan. Ushbu kompaniya tomonidan ishlab chiqarilgan Omega-3 kapsulalari – sog‘lom turmush tarzini qo‘llab-quvvatlashga qaratilgan mukammal mahsulotdir. Omega-3 ning ilmiy asoslangan foydalari va Tibbio Tibomed kompaniyasining mukammallikka intilishi bu mahsulotni sog‘lom hayot uchun ajralmas tanlovga aylantiradi.",
     },
@@ -60,7 +63,7 @@ const HomePage = () => {
     {
       id: 2,
       title: "Kistal Hindi",
-      price: 15000,
+      price: 350000,
       image: CardImage,
       description: "Kistal Hindi (yoki Qust Al Hindi) qadimiy tabobatda mashhur bo‘lgan o‘simlik ildizi bo‘lib, u Saussurea lappa deb nomlanuvchi Himoloyda o‘sadigan o‘simlikdan olinadi. Bu o‘simlikning ildizi quritilib, kukun yoki boshqa shakllarda ishlatiladi",
     },
@@ -68,16 +71,16 @@ const HomePage = () => {
     {
       id: 3,
       title: "Qora sedana",
-      price: 10000,
+      price: 350000 ,
       image: cardImage3,
       description: "Qora sedana – qadimiy davolovchi o‘simlik bo‘lib, uning urug‘lari ko‘plab xalqlarning an’anaviy tabobatlarida keng qo‘llanib kelinadi. U asosan Janubi-G‘arbiy Osiyo, Yaqin Sharq, Hindiston va Shimoliy Afrika hududlarida o‘sadi. Qur'oni Karimda ham qora sedana (Habba Sauda) haqida zikr qilingan va bu o‘simlikning shifobaxsh xususiyatlari Payg‘ambarimiz Muhammad (s.a.v.) hadislarida maqtov bilan tilga olingan.",
     },
     {
       id: 4,
-      title: "Al-Safia Aloe",
-      price: 45743,
-      image: CardImage,
-      description: "Immunitetni mustahkamlovchi vitamin.",
+      title: "Tibbio Tibomed",
+      price: 400000,
+      image: CardImage2,
+      description: "Tibbio Tibomed kompaniyasi sog‘liqni saqlash sohasida o‘zining yuqori sifatli biologik faol qo‘shimchalari bilan tanilgan. Ushbu kompaniya tomonidan ishlab chiqarilgan Omega-3 kapsulalari – sog‘lom turmush tarzini qo‘llab-quvvatlashga qaratilgan mukammal mahsulotdir. Omega-3 ning ilmiy asoslangan foydalari va Tibbio Tibomed kompaniyasining mukammallikka intilishi bu mahsulotni sog‘lom hayot uchun ajralmas tanlovga aylantiradi.",
     },
   ];
 
@@ -136,32 +139,35 @@ const HomePage = () => {
     setImageModalOpen(false);
     setSelectedImage(null);
   };
-
   return (
     <div className="home-page">
       <div className="header-box">
         <img className="header-img" src={HeaderImg} alt="Header" />
+        <img className="logo-img" src={Logo} alt="Header Logo" />
       </div>
 
       <h1 className="title">Top Maxsulotlar</h1>
 
       <div className="container card-container">
-        {cards.map((card) => (
-          <div className="card" key={card.id} onClick={() => handleCardClick(card)}>
-            <div className="card-image-wrapper">
-              <img
-                src={card.image}
-                alt={card.title}
-                className="card-image"
-                onClick={() => openImageModal(card.image)}
-              />
-            </div>
-            <div className="card-details">
-              <h3 className="card-title">{card.title}</h3>
-            </div>
-          </div>
-        ))}
+  {cards.map((card) => (
+    <div className="card" key={card.id} onClick={() => handleCardClick(card)}>
+      <div className="card-image-wrapper">
+        <img
+          src={card.image}
+          alt={card.title}
+          className="card-image"
+        />
+        <div className="overlay-icon" onClick={() => openImageModal(card.image)}>
+          <AiOutlineEye size={20} />
+        </div>
       </div>
+      <div className="card-details">
+        <h3 className="card-title">{card.title}</h3>
+      </div>
+    </div>
+  ))}
+</div>
+
 
       <div className="count-area">
         <div className="container">

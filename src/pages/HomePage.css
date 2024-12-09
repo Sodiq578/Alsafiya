@@ -56,11 +56,7 @@ body, html {
   transform: scale(1.05);
 }
 
-.card-image-wrapper img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
+ 
 
 .card-title {
   margin-top: 10px;
@@ -286,7 +282,83 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .card-image-wrapper img {
+  width: 170px;
+  height: 200px ;
+  border-radius: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+/* /////////////////// */
+
+
+
+.card-image-wrapper {
+  position: relative;
   width: 100%;
   height: 200px;
-  border-radius: 20px;
+}
+
+.overlay-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-icon img {
+  width: 20px;
+  height: 20px;
+}
+
+
+
+.overlay-icon svg {
+  color: gray; /* Ikonkaning rangi */
+}
+
+
+
+
+
+
+
+
+
+.header-box {
+  position: relative; /* Element ichida boshqa elementlarni joylash uchun asos */
+  width: 100%;
+  height: 300px; /* Header balandligi */
+  overflow: hidden; /* Tashqariga chiqib ketadigan elementlarni yashirish */
+}
+
+.header-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Rasmning to'liq sig'ishi uchun */
+  position: absolute; /* Orqa fon rasmning joylashishi */
+  top: 0;
+  left: 0;
+}
+
+.logo-img {
+  position: absolute; /* Logotipni fon rasm ustiga qo'yish uchun */
+  top: 20px; /* Yuqori chetdan masofa */
+  left: 20px; /* Chap chetdan masofa */
+  z-index: 10; /* Logotipni ustun qilish uchun */
+  width: 100px; /* Logotip kengligi */
+  height: auto;
 }
