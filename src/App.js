@@ -11,10 +11,12 @@ import CategoryPage from "./pages/CategoryPage";
 import ForPage from "./pages/ForPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import LoadingScreen from "./LoadingScreen";
 import "./index.css";
 
 const App = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -24,10 +26,20 @@ const App = () => {
     checkScreenSize();
     window.addEventListener("resize", checkScreenSize);
 
+    // Show loading screen for 3 seconds
+    const loadingTimeout = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+
     return () => {
       window.removeEventListener("resize", checkScreenSize);
+      clearTimeout(loadingTimeout);
     };
   }, []);
+
+  if (loading) {
+    return <LoadingScreen />;
+  }
 
   if (!isMobile) {
     return (
@@ -49,19 +61,10 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
-        <Route
-          path="/home"
-          element={<HomePage />}
-        />
-        <Route
-          path="/basket"
-          element={<BasketPage />}
-        />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/basket" element={<BasketPage />} />
         <Route path="/categories" element={<CategoryPage />} />
-        <Route
-          path="/product/:id"
-          element={<ForPage />}
-        />
+        <Route path="/product/:id" element={<ForPage />} />
       </Routes>
       <Footer />
     </Router>

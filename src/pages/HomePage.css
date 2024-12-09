@@ -10,7 +10,7 @@ body, html {
   height: 100%;
   overflow-x: hidden; /* Gorizontal skrollni o‘chiradi */
   font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
+  
 }
 
 /* Asosiy konteyner */
@@ -163,9 +163,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Title */
 .title {
-  text-align: center;
-  font-size: 36px;
-  margin-bottom: 40px;
+  text-align: left;
+  font-size: 26px;
+ 
   color: #19524B;
 
   

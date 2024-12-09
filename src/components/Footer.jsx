@@ -17,18 +17,24 @@ export default function Footer() {
       <span className="border-shape"></span>
       <div className="bottom_content">
         <section className="footer-box">
-          <a href="#">
+          <a href="https://www.facebook.com/alsafiauzbekistan/?locale=cy_GB">
             <i className="fa fa-facebook"></i>
           </a>
-          <a href="#">
+          <a href="https://www.instagram.com/alsafiya_uz?igsh=Mm5ka250eHR2ZW5o">
             <i className="fa fa-instagram"></i>
           </a>
           <a href="#">
-            <i className="fa fa-twitter"></i>
+            <i className="fa fa-whatsapp"></i>
           </a>
-          <a href="#">
+          <a href="https://t.me/alsafiauz">
             <i className="fa fa-telegram"></i>
           </a>
+
+          <a href="https://www.youtube.com/c/ALSAFIAuz">
+            <i className="fa fa-youtube"></i>
+          </a>
+
+          
         </section>
         <section>
           <a href="#">Home</a>

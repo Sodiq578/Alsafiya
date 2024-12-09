@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^5.5.1",
+    "@fontsource/urbanist": "^5.1.0",
     "@react-google-maps/api": "^2.20.3",
     "@react-leaflet/core": "^2.1.0",
     "@testing-library/jest-dom": "^5.17.0",

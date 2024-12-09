@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./HomePage.css";
 import CardImage from "../assets/CardImage.svg";
-import HeaderImg from "../assets/headerImg.png";
+import HeaderImg from "../assets/headeimg2.png";
 import { FaEye } from "react-icons/fa";
 
 // Import React Icons at the top
@@ -63,7 +63,6 @@ const HomePage = () => {
       image: CardImage,
       description: "Kistal Hindi (yoki Qust Al Hindi) qadimiy tabobatda mashhur bo‘lgan o‘simlik ildizi bo‘lib, u Saussurea lappa deb nomlanuvchi Himoloyda o‘sadigan o‘simlikdan olinadi. Bu o‘simlikning ildizi quritilib, kukun yoki boshqa shakllarda ishlatiladi",
     },
-
 
     {
       id: 3,

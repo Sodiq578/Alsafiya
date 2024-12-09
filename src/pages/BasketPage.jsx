@@ -89,8 +89,8 @@ const BasketPage = () => {
 
       {/* Product Details */}
       <div className="product-details">
-        <h2 className="product-price-secondary">{product.price.toLocaleString()} UZS</h2>
         <h1 className="product-title">{product.title}</h1>
+        <h2 className="product-price-secondary">{product.price.toLocaleString()} UZS</h2>
         <p className="product-description">{product.description}</p>
  
 
