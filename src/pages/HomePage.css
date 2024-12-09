@@ -1,827 +1,288 @@
-/* Planshet (tablet) uchun (768px - 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .home-page {
-    padding: 40px;
-    font-family: Arial, sans-serif;
-  }
-
-  .header-section {
-    display: flex;
-    align-items: center;
-  }
-
-  .location-icon {
-    width: 32px;
-    height: 32px;
-    margin-right: 10px;
-  }
-
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    justify-content: center;
-    padding: 0 10px;
-  }
-
-  
-
-   
-}
-
-/* Desktop (katta ekranlar) uchun (1025px va undan katta) */
-@media (min-width: 1025px) {
-  .home-page {
-    padding: 60px;
-    font-family: Arial, sans-serif;
-  }
-
-  .header-section {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-
-  .location-icon {
-    width: 36px;
-    height: 36px;
-    margin-right: 12px;
-  }
-
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
-    justify-content: flex-start;
-    padding: 0 20px;
-  }
-
-  
-
- 
-
-  .price {
-    color: #f30606;
-    font-weight: 600;
-    text-align: left;
-    font-size: 18px;
-  }
-
-  .btn-location {
-    width: 40%;
-    height: 50px;
-    font-size: 20px;
-  }
-
-  .modal-content {
-    width: 900px;
-  }
-
-  .save-button {
-    background-color: #007bff;
-    color: white;
-    padding: 15px 30px;
-    font-size: 18px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-  }
-
-  .save-button:hover {
-    background-color: #0056b3;
-  }
-}
-
-
-
-@media (max-width: 600px) {
-  .home-page {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-
-    padding:0 0 100px 0;
-  }
-
-  
-
-  .header-section {
-    display: flex;
-    align-items: center;
-  }
-
-  .location-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 8px;
-  }
- 
-
-  /* Ensure all cards inside the container follow the same width and height */
- 
-  
-    
-
-
- 
-  
-
-  
-  .search-form {
-    display: flex;
-    align-items: center;
-    position: relative;
-  }
-  
- 
-  
-  .location-text {
-    margin-left: 8px;
-  }
-  
-  .btn-location {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    background: linear-gradient(286.17deg, #FE0000 43.7%, #FF4141 100%);
-    border-radius: 12px;
-    padding: 10px;
-    max-width: 100%;
-    width: 70%;
-    height: 44px;
-    gap: 10px;
-    font-size: 16px;
-    border: none;
-    z-index: 4;
-    color: #fff;
-  }
-  
-  .location-text {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: calc(100% - 50px);
-  }
-
-  
-
-  .header-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
- 
-  .search-form {
-    display: flex;
-    align-items: center;
-    position: relative;
-  }
-  
-  
- 
-
-  
-  
-  .search-suggestions {
-    position: absolute;
-    top: 10vh;
-    left: 0;
-    right: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-height: 200px;
-    overflow-y: auto;
-    z-index: 10;
-  }
-  
-   
-  
-  
-
-
-
-
-
-  .search-form {
-    display: flex;
-   
-    position: relative;
-    width: 100%;
-  }
-  
-  
-  
-  
-  
-
-
-  /* Wrapper for the input and icon */
-.input-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
-.search-input {
-  padding-left: 30px; /* Add space for the icon */
-  padding-right: 20px;
-  width: 100%;
-  font-size: 16px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  transition: border-color 0.3s;
-}
-
- 
- 
- 
-
-.no-suggestions {
-  padding: 10px;
-  color: #888;
-  font-size: 14px;
-}
-
- 
-
- 
-.card-title {
-  font-size: 16px;
-  margin: 10px 0;
-  white-space: nowrap; /* Matnni faqat bir qatorda saqlaydi */
-  overflow: hidden; /* Ortiqcha matnni yashiradi */
-  text-overflow: ellipsis; /* Ortiqcha matn o‘rniga "..." qo‘shadi */
-}
-
- .title{
-  text-align: center;
- }
-
-
-
-/* Basic styles for search input */
- 
- 
-.search-icon {
-  position: absolute;
-  top: 50%;
-  left: 28px !important; /* Positioned on the left side */
-  transform: translateY(-50%);
-  opacity: 0.8;
-  transition: left 0.3s ease, opacity 0.3s ease;
-  width: 24px;
-  height: 24px;
-  color: #999;
-}
-
- 
-.search-input:focus {
-  border-radius: 100px;
-}
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.input-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-
-.search-input {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%; /* Makes the input circular */
- 
- margin-left: -30px;
-  transition: width 0.2s ease; /* Smooth transition when the input is focused */
-}
-
-.search-input:focus {
-  width: 300px; /* Wider width when focused */
-  padding-left: 50px;
-  margin-left: 0px;
-}
-
-.search-icon, .clear-icon {
-  position: absolute;
-  left: 10px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-.input-wrapper {
-  position: relative;
-}
-
- 
-
- 
-
-.input-wrapper.focused .search-icon {
-  opacity: 0; /* Hide search icon when focused */
-}
-
-.input-wrapper.focused .clear-icon {
-  opacity: 1; /* Show clear icon when focused */
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-.search-input {
-  transition: all 0.3s ease;
-  color: transparent; /* Fokus yo'qolganda matnni yashirish */
-  
-}
-
-.search-input:focus {
-  color: black; /* Fokuslangan paytda matn ko'rinadi */
-  font-size: 20px;
-  padding: 5px 25px ;
-}
-
-.search-input::placeholder {
-  color: gray; /* Placeholder rangi */
-  transition: color 0.3s ease;
-}
-
-.search-input:focus::placeholder {
-  color: transparent; /* Fokuslangan paytda placeholderni yashirish */
-}
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
- 
-
-
-
- 
- 
-
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: space-between; /* Align cards to the left */
-  padding: 0 0 90px 0;
- 
- 
-}
-
- 
-
-
-
- 
-
-
-
-.clear-icon {
-  position: absolute; /* Ikonani to'g'ri joylash uchun */
-  top: 50%; /* Inputning o'rtasiga joylashtirish */
-  left: 330px;
-  transform: translateY(-50%); /* Vertikal markazlashtirish */
-  cursor: pointer;
-  color: #777;
-  z-index: 1; /* Ikonani input ustida chiqarish uchun */
-  font-size: 24px;
-  
-}
- 
-
-
-.input-wrapper {
-  position: relative;
-}
-
- 
-
- 
-
- 
-.suggestion {
-  padding: 10px;
-  cursor: pointer;
-}
-
-.suggestion:hover {
-  background-color: #f0f0f0;
-}
-
- 
-
-}
-
-
-
-
-
-@media (min-width: 375px) and (max-width: 414px) {
-  .clear-icon {
-    left: 291px;
-  }
-
-  .search-icon {
-    left: 22px !important;
-  }
-
-
-  .card-container{
-    justify-content: space-around !important;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 500px;
-  max-width: 90%;
-  text-align: center;
-}
-
-.close-button {
-  background: transparent;
-  border: none;
-  font-size: 20px;
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  cursor: pointer;
-}
-
-.save-button {
-  margin-top: 20px;
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.save-button:hover {
-  background-color: #0056b3;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.logo{
-  width: 150px;
-  height: auto;
-  margin-left: 20px;
-  margin-top: 10px;
-}
-
-
-.logo-container {
-  position: relative;
-  width: 150px;
-  height: auto;
-}
-
- 
-
- 
-
-
-
-
-
-.card-container {
-  display: flex;
-  flex-direction: column; /* Kartalarni vertikal joylashtiradi */
-  align-items: center; /* Kartalarni gorizontal markazlaydi */
-  gap: 20px; /* Kartalar orasidagi masofa */
-  padding: 0 20px;
-}
-
- 
-
- 
-
-.card-image {
-  width: 100%;   
-  object-fit: cover; /* Rasm kartaning o‘lchamiga moslashadi */
-  border-radius: 20px;
-  margin-bottom: 15px;
-  background: linear-gradient(135deg, hsl(0, 0%, 100%), #f1fefd);
-  padding: 10px;
-  width: 100%;
-  height: auto;
-  max-width: 300px;
-  border-radius: 100px;
-}
-
-
-.card-title {
-  font-size: 18px;
-  margin: 10px 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
- 
-
- 
- 
-
-
-
-
-
-.card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 10px;
-  padding: 10px;
-  
-  border-radius: 8px;
- 
-}
-
- 
-
-.card-title {
-  margin-top: 8px;
-  font-size: 18px;
-  font-weight: bold;
-  text-align: center;
-  color: #333;
-}
-
- 
-
-@media (max-width: 600px) {
-  .card {
-    width: 90%; /* Kichik ekranda kartaning kengligini moslashtirish */
-    max-width: 300px; /* Maksimal kenglikni cheklash */
-  }
-
- 
-}
-
-
-
-
-
-
-
-
-
-
-
- 
-.flake-wrapper {
-  position: absolute;
-  z-index: 20;
-  width: 5px; /* Kichikroq hajm */
-  height: 5px; /* Kichikroq hajm */
-  animation: falling linear infinite;
-}
-
-.flake path {
-  fill: #fff; /* Qorning rangi */
-  opacity: 0.9; /* Biroz shaffof ko'rinish */
-}
-
-@keyframes falling {
-  0% {
-    top: -50px;
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.8;
-  }
-  100% {
-    top: 100%;
-    opacity: 0;
-  }
-}
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
+/* Global body uslubi */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
+body, html {
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Gorizontal skrollni o‘chiradi */
   font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
 }
 
-
-
-.flake-wrapper {
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  animation: falling linear infinite;
-  pointer-events: none; /* Hujjat bilan o'zaro ta'sirni oldini oladi */
-}
-
-.flake path {
-  fill: #fff;
-  opacity: 0.9;
-}
-
-@keyframes falling {
-  0% {
-    top: -50px;
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.8;
-  }
-  100% {
-    top: 100%;
-    opacity: 0;
-  }
-}
-
-
-
- 
-.background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  z-index: -1;
-}
-
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  padding: 20px;
+/* Asosiy konteyner */
+.container {
+  padding: 0 15px;
+  margin: 0 auto;
+  max-width: 1200px;
   width: 100%;
-  box-sizing: border-box;
 }
 
-
- 
-
-.card:hover {
-  transform: translateY(-5px);
+/* Header uslubi */
+.header-box {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
-.card-image {
+.header-img {
   width: 100%;
   height: auto;
-  border-radius: 50px;
+}
+/* Kartalar konteyneri */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Kartalar kengligi */
+  gap: 24px; /* Kartalar orasidagi bo‘shliq */
+  justify-items: center; /* Kartalarni markazga joylash */
+}
+
+/* Har bir karta */
+.card {
+ 
+  border-radius: 8px;
+  text-align: center;
+ 
+  width: 100%;
+  max-width: 300px; /* Maksimal kenglik */  transition: transform 0.2s ease-in-out;
+}
+
+/* Hover effekti */
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-image-wrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
 .card-title {
-  font-size: 18px;
-  font-weight: bold;
   margin-top: 10px;
+  font-size: 18px;
   color: #333;
 }
 
 
-
-.logo-container {
-  position: relative;
-  width: 150px;
+/* Media Seksiyasi */
+.media-section {
+  margin: 50px 0;
+  text-align: center;
 }
 
-.logo {
+.media-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Kichik ekranlar uchun tuzatishlar */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .card-container {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 8px;
+  }
+}
+
+/* Rasm modal */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
-.qalpoq {
-  position: absolute;
-  width: 60px;
-  top: 0px; /* Qalpoqni logotip ustiga ko‘tarish */
-  left: -4px;
+.modal-content {
+  position: relative;
+}
+
+.modal-content img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+}
+
+/* Media o‘rnatmalari */
+audio {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #333;
+}
+
+.title {
+  text-align: center;
+  font-size: 32px;
+  margin: 20px 0;
 }
 
 
 
+
+/* //////////////// */
+
+
+
+
+
+/* Global Styles */
  
 
+
+/* Global Styles */
  
+
+.home-page {
+  padding: 0 0 50px 0;
+}
+
+/* Title */
+.title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #19524B;
+
+  
+}
+
+
+
+
+/* Count Area */
+.count-area {
+  padding: 100px 0;
+  text-align: center;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(2, 200px); /* Har bir safda 2 ta karta */
+  gap: 40px;
+  justify-content: center;
+}
+
+/* Count Card Styles */
+.count-card {
+  width: 200px; /* Kenglik 200px */
+  text-align: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.7s ease-in-out;
+}
+
+.count-card.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.count-area-content {
+  text-align: center;
+  margin: 30px 0px;
+}
+
+.count-icon i {
+  font-size: 60px;
+  color: #19524B;
+  margin-bottom: 20px;
+}
+
+.count-digit {
+  font-size: 52px;
+  font-weight: bold;
+  color: #D1B64E;
+  margin-bottom: 10px;
+}
+
+.count-title {
+  font-size: 20px;
+  color: #666;
+  font-weight: 600;
+}
+
+/* Image Modal */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .row {
+    grid-template-columns: repeat(2, 180px); /* Mobilda 1 ta karta */
+  }
+
+  .count-card {
+    width: 90%;
+    
+  }
+
+  .count-digit {
+    font-size: 22px;
+  }
+
+  .count-title {
+    font-size: 18px;
+  }
+
+
+  .statistik-title{
+    margin: 20px 0 80px 0;
+    font-size: 30px;
+  }
+}
+
+
+.count-digit {
+  font-size: 2.5rem;
+  font-weight: bold;
+  
+  margin-bottom: 8px;
+}
+
+.count-title {
+  font-size: 1.3rem;
+  
+}
+
+
+

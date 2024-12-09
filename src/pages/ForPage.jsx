@@ -5,8 +5,10 @@ import YaxshiRasim2 from "../assets/doriButilka.png";
 import YaxshiRasim3 from "../assets/doriButilka.png";
 import YaxshiRasim4 from "../assets/doriButilka.png";
 import SampleVideo from "../assets/alsafiaclone.mp4"; // Video import qilindi
-import "./ForPage.css";
+import BackVidyo from "../assets/editVidyo.mp4"
 
+
+import "./ForPage.css";
 const ForPage = () => {
   const { id } = useParams(); 
   const navigate = useNavigate();
@@ -18,6 +20,7 @@ const ForPage = () => {
       title: "Al-Safia Paracetamol",
       price: 12000,
       image: YaxshiRasim1,
+      BackVid:BackVidyo,
       description: "Isitmani tushirish va bosh og'rig'ini bartaraf etish uchun samarali vosita.",
       longDescription:
         "Paracetamol bosh og'rig'i, tish og'rig'i va boshqa og'riqlarga qarshi samarali vositadir. U har qanday yoshdagi foydalanuvchilar uchun xavfsizdir.",

@@ -1,250 +1,298 @@
+body{
+  padding: 0 0 50px 0;
+}
 .basket-page {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  overflow-x: hidden; /* Yon skrollni yo'q qilish */
+}
+
+.product-header {
+  height: 600px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  width: 100%; /* Yon chetga chiqishni oldini olish */
+  margin-top: -160px;
+}
+
+.back-button {
+  position: absolute;
+  top: 195px;
+  left: 31px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 10px;
+  font-size: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.product-details {
   padding: 20px;
-  background-color: #f9f9f9;
-  min-height: 100vh;
-  padding: 100px 0 200px 0;
-  background: linear-gradient(135deg, #FFD2B3, #FFF6EB, #F4DDEB, #FEE1E9);
-}
-
-.basket-container {
-  display: flex;
-  gap: 30px;
-  background: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  overflow: hidden;
-  width: 80%;
-  max-width: 1200px;
-}
-
-.basket-product {
-   
-  text-align: center;
-  padding: 20px;
-  border-right: 1px solid #e0e0e0;
-}
-
-.product-image {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 20px;
+  background: #fff;
+  border-radius: 8px;
+  margin: 20px auto;
+  max-width: 600px; /* Eni cheklangan */
+  width: 90%; /* Ekranga moslashuvchan kenglik */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .product-title {
-  font-size: 1.5rem;
-  color: #333;
+  font-size: 24px;
+  font-weight: bold;
   margin-bottom: 10px;
+  text-align: center;
 }
 
-.product-price,
-.total-price {
-  font-size: 1.2rem;
+.product-description {
+  font-size: 16px;
   color: #555;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  text-align: left;
+
+
+
+
+
+
+
+
+
+  font-family: Urbanist;
+font-size: 20px;
+font-weight: 500;
+line-height: 30px;
+letter-spacing: 0.01em;
+ 
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+
+  
 }
+
+.quantity-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  font-size: 18px;
+  margin-top: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 10px 0 20px 0;
+  border-radius: 10px;
+}
+
+
+.quality-box{
+  display: flex;
+}
+
+
+.quality-box p{
+  font-size: 20px;
+  margin: 30px 0;
+}
+
 
 .quantity-control {
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin: 15px 0;
 }
 
 .quantity-control button {
-  width: 100px;
-  height: 40px;
-  border: none;
-  background: #FF9C32;
-  color: white;
-  font-size: 2.2rem;
+  width: 60px; /* Tugmalar o'lchami */
+  height: 60px;
+  font-size: 34px;
+  border: 1px solid #ddd;
+  background: #fff;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 50%;
+  margin: 0 10px;
+  background-color: #E4E7EC;
 }
 
 .quantity-control span {
-  margin: 0 15px;
-  font-size: 1.2rem;
-}
-
-
-
-.jammi-summa{
-  font-size: 22px;
-  font-weight: 700;
-  color: #FF9C32;
-
-}
-
-.quality{
   font-size: 18px;
-  font-weight: 600;
+  min-width: 40px;
+  text-align: center;
 }
 
- 
-.customer-details h3 {
-  font-size: 1.5rem;
-  color: #FF9C32;
-  margin-bottom: 20px;
+.order-section {
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  margin: 20px auto;
+  max-width: 600px; /* Eni cheklangan */
+  width: 90%; /* Moslashuvchan kenglik */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
 }
 
-.customer-details input,
-.customer-details textarea {
-  width: 100%;
+.order-section h3 {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.order-section input,
+.order-section textarea {
+  width: 100%; /* To'liq kenglik */
+  height: 50px !important;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 1rem;
-}
-
-.customer-details textarea {
-  resize: none;
-  height: 100px;
-}
-
- 
- 
-
-
-.customer-details{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.customer-details input{
-  width: 80%;
+  border-radius: 12px;
+  font-size: 16px;
   height: 40px;
+  transition: all 0.3s ease; /* O'tish effekti */
 }
 
-
-textarea{
-  width: 80% !important;
-  height: 150px;
+.order-section input:focus,
+.order-section textarea:focus {
+  border-color: #19524B; /* Fokusdagi chegara rangi */
+  font-family: Verdana, Geneva, Tahoma, sans-serif; /* Shriftni o'zgartirish */
+  font-size: 18px; /* Katta shrift */
+  outline: none; /* Tashqi chegarani olib tashlash */
+  background-color: #f0f9f8; /* Yoqimli fon rangi */
+  
+  /* Chiroyli soyalar */
+  box-shadow: 0 4px 8px rgba(25, 82, 75, 0.2), 
+              0 2px 4px rgba(25, 82, 75, 0.15);
 }
 
- 
- 
+.order-section textarea {
+  height: 80px;
+}
 
- 
-
-.sotib-olish-backet {
-  margin-top: 20px;
-  text-align: center;
-  font-size: 1.5rem;
+.order-button {
+  width: 100%; /* To'liq kenglik */
+  padding: 15px;
+  background: #19524B;
   color: #fff;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
   border: none;
   border-radius: 5px;
-  background-color: #0cff15;
-  animation: puls 1.5s infinite; /* Animatsiyani qo'shish */
+  font-size: 18px;
+  cursor: pointer;
 }
 
-.batavsil-btn {
-  background-color: #26deef;
+
+.narx{
+  color: #8B9997;
+}
+
+.order-button:hover {
+  background: #218838;
+}
+/* Modal qismi */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px 20px;
+  border-radius: 12px;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.modal-content p {
+  font-size: 18px;
+  color: #19524B;
+  margin-bottom: 15px;
+}
+
+.modal-content button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #19524B;
   color: white;
   border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  font-size: 14px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background 0.3s;
+}
+
+.modal-content button:hover {
+  background: #137a6a;
+}
+
+/* Animatsiya */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+.btn-ok{
+  background-color: #137a6a;
+}
+
+.youtubevid{
+  border-radius: 20px;
+  margin: 60px 0;
+}
+
+
+
+.product-price-secondary{
+  text-align: center;
+  color: #D1B64E;
+}
+
+
+
+
+
+/* Scroll Button Styles */
+.scroll-button {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: background-color 0.3s ease;
 }
 
-.batavsil-btn:hover {
-  background-color: #1cb7d1;
+.scroll-button:hover {
+  background-color: #ff4500;
 }
 
-
-/* Puls animatsiyasi */
-@keyframes puls {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  50% {
-    transform: scale(1.05); /* Kichikroq kattalik */
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); /* Engilroq soyalar */
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+/* Rotate Arrow Icon */
+.skroll-btn-pass {
+  font-size: 24px;
+  transform: rotate(-90deg);  /* Pointing downward */
+  transition: transform 0.3s ease;
 }
 
-
-
-@media (max-width: 768px) {
-  .basket-container {
-      flex-direction: column;
-      gap: 0;
-      width: 100%;
-      max-width: 100%;
-  }
-
-  .basket-product {
-      border-right: none;
-      border-bottom: 1px solid #e0e0e0;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-/* qor yogish  */
-
-
-
-.basket-page {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background: linear-gradient(135deg, #26deef, #FFF6EB, #edeaec, #e9e8e8);
-  overflow: hidden;
-  padding: 100px 0 300px 0;
-}
-
-.flake-wrapper {
-  position: absolute;
-  top: 0;
-  width: 10px;
-  height: 10px;
-  animation: falling linear infinite;
-}
-
-.flake path {
-  fill: #fff;
-  opacity: 0.8;
-}
-
-@keyframes falling {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100vh);
-    opacity: 0.5;
-  }
+.scroll-button:hover .skroll-btn-pass {
+  transform: rotate(-90deg) scale(1.2); /* Slight zoom on hover */
 }

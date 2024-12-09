@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { FaRegComment } from 'react-icons/fa'; // Import the comment icon
 import './Navbar.css';
 import Home from "../assets/home.svg";
-import Wijet from "../assets/Widget.svg";
 import User from "../assets/user.svg";
 
 // Navbar component
@@ -20,8 +20,8 @@ const Navbar = () => {
         to="/categories" 
         className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")}
       >
-        <img src={Wijet} alt="categories" />
-        <span>Categories</span>
+        <FaRegComment size={24} /> {/* Use the React Icon here */}
+        <span>Comments</span>
       </NavLink>
       <NavLink 
         to="/profile" 

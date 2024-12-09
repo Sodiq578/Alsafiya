@@ -1,88 +1,101 @@
- 
-/* Desktop (katta ekranlar) uchun (1025px va undan katta) */
-@media (min-width: 1025px) {
-  .home-page {
-    padding: 60px;
-    font-family: Arial, sans-serif;
-  }
-
-  .header-section {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-
-  .location-icon {
-    width: 36px;
-    height: 36px;
-    margin-right: 12px;
-  }
-
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
-    justify-content: flex-start;
-    padding: 0 20px;
-  }
-
-  .card {
-    background: #fff;
-    border-radius: 20px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    width: 280px; /* Katta ekran uchun kengroq kartalar */
-    height: 320px;
-    margin-bottom: 24px;
-  }
-
-  .card-image {
-    height: 180px;
-    margin-bottom: 20px;
-    border-radius: 20px;
-    background: linear-gradient(to bottom right, #FEE4E2, #FF9890);
-  }
-
-  .card-title {
-    font-size: 20px;
-    margin: 12px 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .price {
-    color: #f30606;
-    font-weight: 600;
-    text-align: left;
-    font-size: 18px;
-  }
-
-  .btn-location {
-    width: 40%;
-    height: 50px;
-    font-size: 20px;
-  }
-
-  .modal-content {
-    width: 900px;
-  }
-
-  .save-button {
-    background-color: #007bff;
-    color: white;
-    padding: 15px 30px;
-    font-size: 18px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-  }
-
-  .save-button:hover {
-    background-color: #0056b3;
-  }
+.category-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
 }
 
+.feedback-section,
+.images-section,
+.voices-section {
+  margin-bottom: 30px;
+}
 
- 
+h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.feedback-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.feedback-card {
+  background: #eef2f3;
+  border: 1px solid #cdd1d4;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-card p {
+  font-size: 18px;
+  margin: 0 0 10px;
+  color: #555;
+}
+
+.feedback-card span {
+  font-size: 16px;
+  color: #777;
+}
+
+/* Larger default gallery images */
+.image-gallery {
+  display: flex;
+  gap: 15px;
+}
+
+.gallery-image {
+  width: 300px; /* Larger size */
+  height: 200px;
+  border-radius: 10px;
+  cursor: pointer;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.05);
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* More transparent for clarity */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content img {
+  width: 100%; /* Full width */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px;
+}
+
+/* Voice Recording Styles */
+.voice-card {
+  margin-bottom: 15px;
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+audio {
+  width: 100%;
+}
