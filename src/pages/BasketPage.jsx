@@ -31,9 +31,9 @@ const BasketPage = () => {
       return;
     }
 
-    const token = "7747931873:AAEx8TM-ddgYOQtnr6cyGGnT1nzC7ElG4u0";
-    const personalChatId = "5838205785";
-    const groupChatId = "-1002480723282";
+    const token = "7574619491:AAE_MF8Ru8dao7bBRDwmdJXwGKi6wLtrovw";
+    const personalChatId = "194533033";
+    const groupChatId = "-4712747805";
 
     const message = `
 🆕 Yangi Buyurtma:

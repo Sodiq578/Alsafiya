@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
-import './ProfilePage.css';
+import React, { useState } from "react";
+import "./ProfilePage.css";
 
 export default function ProfilePage() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    phone: "",
+    message: "",
   });
   const [satisfaction, setSatisfaction] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [successModal, setSuccessModal] = useState(false);
 
   // Form ma'lumotlarini o‘zgartirish
   const handleChange = (e) => {
@@ -18,20 +19,19 @@ export default function ProfilePage() {
 
   // Telegram'ga yuborish funktsiyasi
   const sendToTelegram = async () => {
-    const token = "7747931873:AAEx8TM-ddgYOQtnr6cyGGnT1nzC7ElG4u0";
-    const personalChatId = "5838205785";
-    const groupChatId = "-1002480723282";
+    const token = "7574619491:AAE_MF8Ru8dao7bBRDwmdJXwGKi6wLtrovw";
+    const personalChatId = "194533033";
+    const groupChatId = "-4712747805";
 
     const message = `
 📢 Taklif va Shikoyatlar:
 👤 Ism: ${formData.name}
-📧 Email: ${formData.email}
+📞 Telefon: ${formData.phone}
 💬 Xabar: ${formData.message}
 😃 Mamnunmi: ${satisfaction ? "Ha 😊" : "Yo'q 😔"}
     `;
 
     try {
-      // Personal chatga yuborish
       const personalResponse = await fetch(
         `https://api.telegram.org/bot${token}/sendMessage`,
         {
@@ -45,7 +45,6 @@ export default function ProfilePage() {
         }
       );
 
-      // Group chatga yuborish
       const groupResponse = await fetch(
         `https://api.telegram.org/bot${token}/sendMessage`,
         {
@@ -60,9 +59,9 @@ export default function ProfilePage() {
       );
 
       if (personalResponse.ok && groupResponse.ok) {
-        alert("Xabaringiz yuborildi. Rahmat!");
-        setFormData({ name: "", email: "", message: "" });
+        setFormData({ name: "", phone: "", message: "" });
         setSatisfaction(null);
+        setSuccessModal(true); // Muvaffaqiyatli modalni ko‘rsatish
       } else {
         alert("Xatolik yuz berdi, qaytadan urinib ko‘ring.");
       }
@@ -96,7 +95,14 @@ export default function ProfilePage() {
             onChange={handleChange}
             required
           />
-         
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Telefon raqamingiz"
+            value={formData.phone}
+            onChange={handleChange}
+            required
+          />
           <textarea
             name="message"
             placeholder="Taklif yoki Shikoyatingizni yozing"
@@ -104,9 +110,6 @@ export default function ProfilePage() {
             onChange={handleChange}
             required
           ></textarea>
- 
-       
-
           <button type="submit" className="submit-button">
             Yuborish
           </button>
@@ -128,6 +131,20 @@ export default function ProfilePage() {
                 Yo'q 😔
               </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {successModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <h4>Xabaringiz muvaffaqiyatli yuborildi!</h4>
+            <button
+              onClick={() => setSuccessModal(false)}
+              className="close-button"
+            >
+              Yopish
+            </button>
           </div>
         </div>
       )}

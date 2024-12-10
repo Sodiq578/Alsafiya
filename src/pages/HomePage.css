@@ -367,13 +367,14 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
+
 /* 1, 3 va 4-chi kartalarga effekti qo‘llash */
 .card:nth-child(1) .card-image,
 .card:nth-child(3) .card-image,
 .card:nth-child(4) .card-image {
-  transform: scale(1.2); /* Rasmni yanada kichikroq kattalashtirish */
+  transform: scale(1.6); /* Rasmni yanada kichikroq kattalashtirish */
   filter: brightness(1.5); /* Rasmni yanada yorqin qilish */
-  margin-top: -20px;
+  margin-top: -35px;
   overflow: hidden; /* Rasmning karta chegarasidan chiqmasligini ta'minlash */
 }
 
@@ -389,3 +390,7 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden; /* Rasmning chiqib ketishini oldini olish */
   border-radius: 20px;
 }
+
+
+
+
