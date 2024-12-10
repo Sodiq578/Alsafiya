@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import MijozFirk1 from "../assets/mijozFirki.jpg";
 import MijozFirk2 from "../assets/mijozFirki.jpg";
 import Golos2 from "../assets/golos4.wav";
@@ -13,11 +14,11 @@ import MijozFirki10 from "../assets/mijozfikri10.jpg";
 import MijozFirki11 from "../assets/mijozfikri11.jpg";
 import MijozFirki12 from "../assets/mijozFikri12.jpg";
 import MijozFirki13 from "../assets/mijozFikri13.jpg";
-
 import "./CategoryPage.css";
 
 const CategoryPage = () => {
-  const [modalImage, setModalImage] = useState(null);
+  const [modalImageIndex, setModalImageIndex] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const feedbacks = [
     { id: 1, text: "Tavsiya qilaman! ShifoBash Tibomed dorisi juda samarali bo‘ldi, rahmat!", author: "Omon" },
@@ -25,7 +26,7 @@ const CategoryPage = () => {
     { id: 3, text: "ShifoBash dorisi kutganimdan ham yaxshiroq ta'sir qildi. Ishingizga rivoj!", author: "Azizbek" },
     { id: 4, text: "Tez yetkazib berish va sifatli mahsulot uchun rahmat! Mamnun bo'lsim.", author: "Madina" },
   ];
-  
+
   const images = [
     MijozFirk1,
     MijozFirk2,
@@ -46,8 +47,24 @@ const CategoryPage = () => {
     { id: 3, url: Golos4, title: "Ovoz yozuvi 3" },
   ];
 
-  const openModal = (image) => setModalImage(image);
-  const closeModal = () => setModalImage(null);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 2000); // Avtomatik almashish har 2 sekundda
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const openModal = (index) => setModalImageIndex(index);
+  const closeModal = () => setModalImageIndex(null);
+
+  const goToNextImage = () => {
+    setModalImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const goToPreviousImage = () => {
+    setModalImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
 
   return (
     <div className="category-page">
@@ -64,7 +81,7 @@ const CategoryPage = () => {
         </div>
       </section>
 
-      {/* Images */}
+      {/* Images Gallery */}
       <section className="images-section">
         <h2>Rasmlar</h2>
         <div className="image-gallery">
@@ -74,18 +91,31 @@ const CategoryPage = () => {
               src={image}
               alt={`Gallery ${index + 1}`}
               className="gallery-image"
-              onClick={() => openModal(image)}
+              onClick={() => openModal(index)}
             />
           ))}
         </div>
-        {modalImage && (
-          <div className="modal-overlay" onClick={closeModal}>
-            <div className="modal-content">
-              <img src={modalImage} alt="Modal View" />
+      </section>
+
+      {/* Modal with Next and Prev buttons */}
+      {modalImageIndex !== null && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <img src={images[modalImageIndex]} alt="Modal View" />
+            <button className="modal-close" onClick={closeModal}>
+              X
+            </button>
+            <div className="modal-controls">
+              <button onClick={goToPreviousImage}>
+                <FaChevronLeft />
+              </button>
+              <button onClick={goToNextImage}>
+                <FaChevronRight />
+              </button>
             </div>
           </div>
-        )}
-      </section>
+        </div>
+      )}
 
       {/* Voice Recordings */}
       <section className="voices-section">
