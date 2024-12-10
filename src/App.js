@@ -9,6 +9,7 @@ import HomePage from "./pages/HomePage";
 import BasketPage from "./pages/BasketPage";
 import CategoryPage from "./pages/CategoryPage";
 import ForPage from "./pages/ForPage";
+import ProfilePage from "./pages/ProfilePage"; // Profil sahifasini import qilish
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import LoadingScreen from "./LoadingScreen";
@@ -20,13 +21,12 @@ const App = () => {
 
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsMobile(window.innerWidth <= 768); // 768px dan kichik ekranlar mobil hisoblanadi
+      setIsMobile(window.innerWidth <= 768);
     };
 
     checkScreenSize();
     window.addEventListener("resize", checkScreenSize);
 
-    // Show loading screen for 3 seconds
     const loadingTimeout = setTimeout(() => {
       setLoading(false);
     }, 3000);
@@ -65,6 +65,7 @@ const App = () => {
         <Route path="/basket" element={<BasketPage />} />
         <Route path="/categories" element={<CategoryPage />} />
         <Route path="/product/:id" element={<ForPage />} />
+        <Route path="/profile" element={<ProfilePage />} /> {/* Profil yo'nalishi */}
       </Routes>
       <Footer />
     </Router>

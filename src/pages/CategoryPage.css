@@ -44,6 +44,9 @@ h2 {
 .image-gallery {
   display: flex;
   gap: 15px;
+  overflow: scroll;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none; 
 }
 
 .gallery-image {

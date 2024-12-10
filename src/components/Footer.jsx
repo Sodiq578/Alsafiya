@@ -36,17 +36,10 @@ export default function Footer() {
 
           
         </section>
-        <section>
-          <a href="#">Home</a>
-          <a href="#">About us</a>
-          <a href="#">Order</a>
-          <a href="#">Retail</a>
-          <a href="#">Member</a>
-          <a href="#">Contact Us</a>
-        </section>
+        
       </div>
       <div className="copyright">
-        Copyright © 2021 websitename - All rights reserved
+       Dasturchi:  Sodiqov Sodiqjon   <a href="https://t.me/Sadikov001">https://t.me/Sadikov001</a>
       </div>
     </footer>
   );
