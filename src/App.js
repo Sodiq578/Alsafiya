@@ -29,7 +29,7 @@ const App = () => {
 
     const loadingTimeout = setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 1000);
 
     return () => {
       window.removeEventListener("resize", checkScreenSize);
