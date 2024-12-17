@@ -54,7 +54,7 @@ const HomePage = () => {
   const cards = [
     {
       id: 1,
-      title: "Tibbio Tibomed",
+      title: "Kist-ul Hindi",
       price: 400000,
       image: CardImage2,
       description: "Tibbio Tibomed kompaniyasi sog‘liqni saqlash sohasida o‘zining yuqori sifatli biologik faol qo‘shimchalari bilan tanilgan. Ushbu kompaniya tomonidan ishlab chiqarilgan Omega-3 kapsulalari – sog‘lom turmush tarzini qo‘llab-quvvatlashga qaratilgan mukammal mahsulotdir. Omega-3 ning ilmiy asoslangan foydalari va Tibbio Tibomed kompaniyasining mukammallikka intilishi bu mahsulotni sog‘lom hayot uchun ajralmas tanlovga aylantiradi.",
@@ -62,22 +62,22 @@ const HomePage = () => {
 
     {
       id: 2,
-      title: "Kistal Hindi",
-      price: 350000,
+      title: "Omega-3",
+      price: 399000,
       image: CardImage,
-      description: "Kistal Hindi (yoki Qust Al Hindi) qadimiy tabobatda mashhur bo‘lgan o‘simlik ildizi bo‘lib, u Saussurea lappa deb nomlanuvchi Himoloyda o‘sadigan o‘simlikdan olinadi. Bu o‘simlikning ildizi quritilib, kukun yoki boshqa shakllarda ishlatiladi",
+      description: "Miya faoliyati: Xotira va konsentratsiyani yaxshilaydi, stressni kamaytirishga yordam beradi.Ko'z sog'ligi: Ko'rishni mustahkamlaydi, ko‘z charchoqlarini kamaytiradi. Immunitet: Tabiiy himoya tizimini kuchaytirib, kasalliklarga qarshi kurashishda yordam beradi. Teri va soch: Teri elastikligini oshirib, yosh va sog‘lom ko‘rinishni saqlaydi; sochlarni mustahkam va yorqin qiladi.",
     },
 
     {
       id: 3,
       title: "Qora sedana",
-      price: 350000 ,
+      price: 399000 ,
       image: cardImage3,
       description: "Qora sedana – qadimiy davolovchi o‘simlik bo‘lib, uning urug‘lari ko‘plab xalqlarning an’anaviy tabobatlarida keng qo‘llanib kelinadi. U asosan Janubi-G‘arbiy Osiyo, Yaqin Sharq, Hindiston va Shimoliy Afrika hududlarida o‘sadi. Qur'oni Karimda ham qora sedana (Habba Sauda) haqida zikr qilingan va bu o‘simlikning shifobaxsh xususiyatlari Payg‘ambarimiz Muhammad (s.a.v.) hadislarida maqtov bilan tilga olingan.",
     },
     {
       id: 4,
-      title: "Tibbio Tibomed",
+      title: "Kist-ul Hindi",
       price: 400000,
       image: CardImage2,
       description: "Tibbio Tibomed kompaniyasi sog‘liqni saqlash sohasida o‘zining yuqori sifatli biologik faol qo‘shimchalari bilan tanilgan. Ushbu kompaniya tomonidan ishlab chiqarilgan Omega-3 kapsulalari – sog‘lom turmush tarzini qo‘llab-quvvatlashga qaratilgan mukammal mahsulotdir. Omega-3 ning ilmiy asoslangan foydalari va Tibbio Tibomed kompaniyasining mukammallikka intilishi bu mahsulotni sog‘lom hayot uchun ajralmas tanlovga aylantiradi.",

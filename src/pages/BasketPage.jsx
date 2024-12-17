@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FaChevronLeft } from "react-icons/fa";
 
@@ -14,10 +14,12 @@ const BasketPage = () => {
     phone: "",
     address: "",
     comment: "",
+    timeOfDay: "", // Yangi field qo'shildi
   });
 
   const [quantity, setQuantity] = useState(1);
   const [showModal, setShowModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const totalPrice = product ? product.price * quantity : 0;
 
   const handleChange = (e) => {
@@ -26,11 +28,13 @@ const BasketPage = () => {
   };
 
   const sendOrderToTelegram = async () => {
-    if (!formData.name || !formData.phone || !formData.address) {
+    if (!formData.name || !formData.phone || !formData.address || !formData.timeOfDay) {
       alert("Iltimos, barcha kerakli maydonlarni to‘ldiring!");
       return;
     }
 
+    setIsLoading(true);
+    
     const token = "7574619491:AAE_MF8Ru8dao7bBRDwmdJXwGKi6wLtrovw";
     const personalChatId = "194533033";
     const groupChatId = "-4712747805";
@@ -45,6 +49,7 @@ const BasketPage = () => {
 🔢 Soni: ${quantity}
 📊 Umumiy Narx: ${totalPrice.toLocaleString()} UZS
 💬 Izoh: ${formData.comment || "Yo'q"}
+🕒 Kun vaqti: ${formData.timeOfDay}
     `;
 
     try {
@@ -62,7 +67,7 @@ const BasketPage = () => {
 
       if (personalResponse.ok && groupResponse.ok) {
         setShowModal(true);
-        setFormData({ name: "", phone: "", address: "", comment: "" });
+        setFormData({ name: "", phone: "", address: "", comment: "", timeOfDay: "" });
         setQuantity(1);
       } else {
         alert("Xatolik yuz berdi, qaytadan urinib ko‘ring.");
@@ -71,10 +76,21 @@ const BasketPage = () => {
       console.error("Xatolik yuz berdi:", error);
       alert("Xatolik yuz berdi, qaytadan urinib ko‘ring.");
     }
+
+    setIsLoading(false);
   };
 
+  useEffect(() => {
+    if (showModal) {
+      const timer = setTimeout(() => {
+        navigate("/home");
+      }, 3000); // Automatically navigate after 3 seconds
+      return () => clearTimeout(timer);
+    }
+  }, [showModal, navigate]);
+
   if (!product) {
-    return <p>Mahsulot topilmadi</p>;
+    return <p>Mahsulot topilmadi. Iltimos, qaytadan urinib ko‘ring.</p>;
   }
 
   return (
@@ -84,34 +100,24 @@ const BasketPage = () => {
         <button className="back-button" onClick={() => navigate("/home")}>
           <FaChevronLeft />
         </button>
-        <h2 className="product-price-secondary">Narxi: {product.price.toLocaleString()} UZS</h2>
       </div>
 
       {/* Product Details */}
       <div className="product-details">
         <h1 className="product-title">{product.title}</h1>
-        <h2 className="product-price-secondary">{product.price.toLocaleString()} UZS</h2>
         <p className="product-description">{product.description}</p>
- 
 
-
-<iframe   
- className="youtubevid"
-width="330"
-          height="215" src="https://www.youtube.com/embed/RKbqazwsVlY?si=frQj5X-5otmDfZ3B" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-        <div className="quantity-section">
-          <div className="quality-box">
-            <p>Jami:</p>
-            <p className="narx">{totalPrice.toLocaleString()} UZS</p>
-          </div>
-
-          <div className="quantity-control">
-            <button onClick={() => setQuantity(Math.max(quantity - 1, 1))}>-</button>
-            <span>{quantity}</span>
-            <button onClick={() => setQuantity(quantity + 1)}>+</button>
-          </div>
-        </div>
+        <iframe
+          className="youtubevid"
+          width="330"
+          height="215"
+          src="https://www.youtube.com/embed/RKbqazwsVlY?si=frQj5X-5otmDfZ3B"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        ></iframe>
       </div>
 
       {/* Order Section */}
@@ -145,25 +151,36 @@ width="330"
           onChange={handleChange}
         ></textarea>
 
-        <button className="order-button" onClick={sendOrderToTelegram}>
-          Buyurtma Berish
+        {/* Kun vaqti Dropdown */}
+        <select
+          name="timeOfDay"
+          value={formData.timeOfDay}
+          onChange={handleChange}
+        >
+          <option value="">Murojaat qilish vaqti</option>
+          <option value="Kunning birinchi yarmida">Kunning birinchi yarmida</option>
+          <option value="Kunning ikkinchi yarmida">Kunning ikkinchi yarmida</option>
+          <option value="Farqi yo'q">Farqi yo'q</option>
+        </select>
+
+        <button
+          className="order-button"
+          onClick={sendOrderToTelegram}
+          disabled={isLoading || !formData.name || !formData.phone || !formData.address || !formData.timeOfDay}
+        >
+          {isLoading ? "Yuborilyapti..." : "Buyurtma Berish"}
         </button>
       </div>
 
       {/* Scroll Button */}
-      <button
-        className="scroll-button"
-        onClick={() => document.querySelector(".quantity-section").scrollIntoView({ behavior: "smooth" })}
-      >
-       <FaChevronLeft className="skroll-btn-pass" />
-      </button>
+ 
 
       {/* Success Modal */}
       {showModal && (
         <div className="modal">
           <div className="modal-content">
             <p>✅ Buyurtmangiz qabul qilindi!</p>
-            <p>Tez orada operatorlarimiz siz bilan bog‘lanadi.</p>
+            <p>Tez orada mutaxasisslarimiz siz bilan bog‘lanadi.</p>
             <button className="btn-ok" onClick={() => navigate("/home")}>OK</button>
           </div>
         </div>

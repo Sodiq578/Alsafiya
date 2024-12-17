@@ -303,3 +303,52 @@ color: #19524bbe;
 .scroll-button:hover .skroll-btn-pass {
   transform: rotate(-90deg) scale(1.2); /* Slight zoom on hover */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Kun vaqti dropdowni */
+.order-section select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  appearance: none; /* Mahsulot tanlash uchun o'ziga xos chiziqlarni olib tashlaydi */
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"%3E%3Cpath fill="none" stroke="gray" stroke-width="2" d="M5 7L10 12L15 7"/%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  
+  /* Ko'rsatilgan elementdan tashqariga chiqmasligi uchun */
+  overflow: hidden;
+  height: auto; /* Bu elementning balandligi matnni o'z ichiga sig'diradi */
+  max-height: 150px; /* Agar ko'proq yozuv bo'lsa, 150px gacha balandlikni cheklash */
+  box-sizing: border-box; /* Padding va borderni ichki o'lchamlarga kiritish */
+}
+
+.order-section select:focus {
+  border-color: #4CAF50;
+  outline: none;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Hover holatida dropdownning ko'rinishini yaxshilash */
+.order-section select:hover {
+  border-color: #45a049;
+  background-color: #f1f1f1;
+}
