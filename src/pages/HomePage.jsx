@@ -31,35 +31,41 @@ const HomePage = () => {
   ]);
 
   const cards = [
+
+
     {
       id: 3,
       title: "Qora sedana",
-      price: 399000,
+      price: 399000 ,
       image: cardImage3,
-      description: "Qora sedana haqida batafsil ma'lumot.",
+      description: "Qora sedana – qadimiy davolovchi o‘simlik bo‘lib, uning urug‘lari ko‘plab xalqlarning an’anaviy tabobatlarida keng qo‘llanib kelinadi. U asosan Janubi-G‘arbiy Osiyo, Yaqin Sharq, Hindiston va Shimoliy Afrika hududlarida o‘sadi. Qur'oni Karimda ham qora sedana (Habba Sauda) haqida zikr qilingan va bu o‘simlikning shifobaxsh xususiyatlari Payg‘ambarimiz Muhammad (s.a.v.) hadislarida maqtov bilan tilga olingan.",
     },
     {
       id: 1,
       title: "Kist-ul Hindi",
       price: 400000,
       image: CardImage2,
-      description: "Kist-ul Hindi haqida batafsil ma'lumot.",
+      description: "Tibbio Tibomed kompaniyasi sog‘liqni saqlash sohasida o‘zining yuqori sifatli biologik faol qo‘shimchalari bilan tanilgan. Ushbu kompaniya tomonidan ishlab chiqarilgan Omega-3 kapsulalari – sog‘lom turmush tarzini qo‘llab-quvvatlashga qaratilgan mukammal mahsulotdir. Omega-3 ning ilmiy asoslangan foydalari va Tibbio Tibomed kompaniyasining mukammallikka intilishi bu mahsulotni sog‘lom hayot uchun ajralmas tanlovga aylantiradi.",
     },
+
     {
       id: 2,
       title: "Omega-3",
       price: 399000,
       image: CardImage,
-      description: "Omega-3 haqida batafsil ma'lumot.",
+      description: "Miya faoliyati: Xotira va konsentratsiyani yaxshilaydi, stressni kamaytirishga yordam beradi.Ko'z sog'ligi: Ko'rishni mustahkamlaydi, ko‘z charchoqlarini kamaytiradi. Immunitet: Tabiiy himoya tizimini kuchaytirib, kasalliklarga qarshi kurashishda yordam beradi. Teri va soch: Teri elastikligini oshirib, yosh va sog‘lom ko‘rinishni saqlaydi; sochlarni mustahkam va yorqin qiladi.",
     },
+
+   
     {
       id: 4,
       title: "Kist-ul Hindi",
       price: 400000,
       image: CardImage2,
-      description: "Kist-ul Hindi haqida batafsil ma'lumot.",
+      description: "Tibbio Tibomed kompaniyasi sog‘liqni saqlash sohasida o‘zining yuqori sifatli biologik faol qo‘shimchalari bilan tanilgan. Ushbu kompaniya tomonidan ishlab chiqarilgan Omega-3 kapsulalari – sog‘lom turmush tarzini qo‘llab-quvvatlashga qaratilgan mukammal mahsulotdir. Omega-3 ning ilmiy asoslangan foydalari va Tibbio Tibomed kompaniyasining mukammallikka intilishi bu mahsulotni sog‘lom hayot uchun ajralmas tanlovga aylantiradi.",
     },
   ];
+
 
   useEffect(() => {
     const countArea = document.querySelector(".count-area");
@@ -149,7 +155,8 @@ const HomePage = () => {
       {isUserModalOpen && (
         <div className="user-modal">
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h2>Batavsil bilish uchun</h2>
+          <h2 className="modal-title">Batafsil ma'lumot olish uchun</h2>
+
             <input
               type="text"
               placeholder="Ismingizni kiriting"
@@ -163,7 +170,7 @@ const HomePage = () => {
               onChange={handlePhoneChange}
               maxLength="13"
             />
-            <button onClick={handleUserSubmit}>Yuborish</button>
+            <button onClick={handleUserSubmit}>Saytga kirish</button>
           </div>
         </div>
       )}
