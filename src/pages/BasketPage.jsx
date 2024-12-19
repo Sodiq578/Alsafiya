@@ -137,19 +137,8 @@ const BasketPage = () => {
           value={formData.phone}
           onChange={handleChange}
         />
-        <input
-          type="text"
-          name="address"
-          placeholder="Manzilingiz"
-          value={formData.address}
-          onChange={handleChange}
-        />
-        <textarea
-          name="comment"
-          placeholder="Izoh"
-          value={formData.comment}
-          onChange={handleChange}
-        ></textarea>
+    
+        
 
         {/* Kun vaqti Dropdown */}
         <select

@@ -13,21 +13,21 @@ const Navbar = () => {
         className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")}
       >
         <img src={Home} alt="home" />
-        <span>Home</span>
+        <span>Asosiy</span>
       </NavLink>
       <NavLink 
         to="/categories" 
         className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")}
       >
         <FaRegComment size={24} /> 
-        <span>Comments</span>
+        <span>Mijozlar</span>
       </NavLink>
       <NavLink 
         to="/profile" 
         className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")}
       >
         <img src={User} alt="profile" />
-        <span>Profile</span>
+        <span>Profil</span>
       </NavLink>
     </div>
   );

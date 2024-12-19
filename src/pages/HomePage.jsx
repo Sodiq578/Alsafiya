@@ -15,7 +15,9 @@ const HomePage = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [animated, setAnimated] = useState(false);
 
-  const [isUserModalOpen, setUserModalOpen] = useState(true); // Modal state
+  const [isUserModalOpen, setUserModalOpen] = useState(
+    !localStorage.getItem("isModalShown")
+  ); // Modal state
   const [userData, setUserData] = useState({ name: "", phone: "" }); // User data
 
   const token = "7747931873:AAEx8TM-ddgYOQtnr6cyGGnT1nzC7ElG4u0"; // Telegram bot token
@@ -30,37 +32,34 @@ const HomePage = () => {
 
   const cards = [
     {
+      id: 3,
+      title: "Qora sedana",
+      price: 399000,
+      image: cardImage3,
+      description: "Qora sedana haqida batafsil ma'lumot.",
+    },
+    {
       id: 1,
       title: "Kist-ul Hindi",
       price: 400000,
       image: CardImage2,
-      description: "Tibbio Tibomed kompaniyasi sog‘liqni saqlash sohasida o‘zining yuqori sifatli biologik faol qo‘shimchalari bilan tanilgan. Ushbu kompaniya tomonidan ishlab chiqarilgan Omega-3 kapsulalari – sog‘lom turmush tarzini qo‘llab-quvvatlashga qaratilgan mukammal mahsulotdir. Omega-3 ning ilmiy asoslangan foydalari va Tibbio Tibomed kompaniyasining mukammallikka intilishi bu mahsulotni sog‘lom hayot uchun ajralmas tanlovga aylantiradi.",
+      description: "Kist-ul Hindi haqida batafsil ma'lumot.",
     },
-
     {
       id: 2,
       title: "Omega-3",
       price: 399000,
       image: CardImage,
-      description: "Miya faoliyati: Xotira va konsentratsiyani yaxshilaydi, stressni kamaytirishga yordam beradi.Ko'z sog'ligi: Ko'rishni mustahkamlaydi, ko‘z charchoqlarini kamaytiradi. Immunitet: Tabiiy himoya tizimini kuchaytirib, kasalliklarga qarshi kurashishda yordam beradi. Teri va soch: Teri elastikligini oshirib, yosh va sog‘lom ko‘rinishni saqlaydi; sochlarni mustahkam va yorqin qiladi.",
-    },
-
-    {
-      id: 3,
-      title: "Qora sedana",
-      price: 399000 ,
-      image: cardImage3,
-      description: "Qora sedana – qadimiy davolovchi o‘simlik bo‘lib, uning urug‘lari ko‘plab xalqlarning an’anaviy tabobatlarida keng qo‘llanib kelinadi. U asosan Janubi-G‘arbiy Osiyo, Yaqin Sharq, Hindiston va Shimoliy Afrika hududlarida o‘sadi. Qur'oni Karimda ham qora sedana (Habba Sauda) haqida zikr qilingan va bu o‘simlikning shifobaxsh xususiyatlari Payg‘ambarimiz Muhammad (s.a.v.) hadislarida maqtov bilan tilga olingan.",
+      description: "Omega-3 haqida batafsil ma'lumot.",
     },
     {
       id: 4,
       title: "Kist-ul Hindi",
       price: 400000,
       image: CardImage2,
-      description: "Tibbio Tibomed kompaniyasi sog‘liqni saqlash sohasida o‘zining yuqori sifatli biologik faol qo‘shimchalari bilan tanilgan. Ushbu kompaniya tomonidan ishlab chiqarilgan Omega-3 kapsulalari – sog‘lom turmush tarzini qo‘llab-quvvatlashga qaratilgan mukammal mahsulotdir. Omega-3 ning ilmiy asoslangan foydalari va Tibbio Tibomed kompaniyasining mukammallikka intilishi bu mahsulotni sog‘lom hayot uchun ajralmas tanlovga aylantiradi.",
+      description: "Kist-ul Hindi haqida batafsil ma'lumot.",
     },
   ];
-
 
   useEffect(() => {
     const countArea = document.querySelector(".count-area");
@@ -75,7 +74,7 @@ const HomePage = () => {
       { threshold: 0.3 }
     );
 
-    observer.observe(countArea);
+    if (countArea) observer.observe(countArea);
 
     return () => observer.disconnect();
   }, [animated]);
@@ -119,11 +118,10 @@ const HomePage = () => {
   const handlePhoneChange = (e) => {
     let value = e.target.value;
 
-    // Telefon raqamini formatlash
     if (!value.startsWith("+998")) {
-      value = "+998" + value.replace(/[^0-9]/g, "").slice(0, 10); // Faqat raqamlarni qabul qilish va 9 raqamga cheklash
+      value = "+998" + value.replace(/[^0-9]/g, "").slice(0, 10);
     } else {
-      value = "+998" + value.slice(4).replace(/[^0-9]/g, "").slice(0, 10); // Faol raqamlarni to'g'ri formatda saqlash
+      value = "+998" + value.slice(4).replace(/[^0-9]/g, "").slice(0, 10);
     }
 
     if (value.length <= 13) {
@@ -131,47 +129,39 @@ const HomePage = () => {
     }
   };
 
-  const [error, setError] = useState(null); // Xatolik holati
-
   const handleUserSubmit = () => {
     if (userData.name && userData.phone) {
-      const message = `
-      
-      Yangi foydalanuchi saytdna ro'yxatdan o'tdi
-
-      👤 Ismi: ${userData.name}\n📞 Telefon: ${userData.phone}`;
+      const message = `👤 Ismi: ${userData.name}\n📞 Telefon: ${userData.phone}`;
       fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ chat_id: groupChatId, text: message }),
-      })
-        .then(() => {
-          setUserModalOpen(false);
-          setUserData({ name: "", phone: "" }); // Formani tozalash
-          setError(null); // Xatolikni tozalash
-        })
- 
+      }).then(() => {
+        setUserModalOpen(false);
+        setUserData({ name: "", phone: "" });
+        localStorage.setItem("isModalShown", "true");
+      });
     }
   };
-  
 
   return (
     <div className="home-page">
       {isUserModalOpen && (
         <div className="user-modal">
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h2>Batavsil bilish uchun </h2>
+            <h2>Batavsil bilish uchun</h2>
             <input
               type="text"
               placeholder="Ismingizni kiriting"
               value={userData.name}
-              onChange={(e) => setUserData((prev) => ({ ...prev, name: e.target.value }))} />
+              onChange={(e) => setUserData((prev) => ({ ...prev, name: e.target.value }))}
+            />
             <input
               type="tel"
               placeholder="Telefon raqamingizni kiriting"
               value={userData.phone}
               onChange={handlePhoneChange}
-              maxLength="13" // Telefon raqami uchun maksimal uzunlik
+              maxLength="13"
             />
             <button onClick={handleUserSubmit}>Yuborish</button>
           </div>
@@ -200,7 +190,6 @@ const HomePage = () => {
         ))}
       </div>
 
-      {/* Statistikalar */}
       <div className="count-area">
         <div className="container">
           <h2 className="title">Statistika</h2>
