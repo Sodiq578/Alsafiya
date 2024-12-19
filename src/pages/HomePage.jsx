@@ -160,7 +160,7 @@ const HomePage = () => {
       {isUserModalOpen && (
         <div className="user-modal">
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h2>Ro'yxatdan o'tish</h2>
+            <h2>Batavsil bilish uchun </h2>
             <input
               type="text"
               placeholder="Ismingizni kiriting"
