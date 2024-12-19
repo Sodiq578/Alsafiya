@@ -29,11 +29,38 @@ const HomePage = () => {
   ]);
 
   const cards = [
-    { id: 1, title: "Kist-ul Hindi", price: 400000, image: CardImage2, description: "Tibbio Tibomed kompaniyasi sog‘liqni saqlash sohasida..." },
-    { id: 2, title: "Omega-3", price: 399000, image: CardImage, description: "Miya faoliyati: Xotira va konsentratsiyani yaxshilaydi..." },
-    { id: 3, title: "Qora sedana", price: 399000, image: cardImage3, description: "Qora sedana – qadimiy davolovchi o‘simlik..." },
-    { id: 4, title: "Kist-ul Hindi", price: 400000, image: CardImage2, description: "Tibbio Tibomed kompaniyasi sog‘liqni saqlash sohasida..." },
+    {
+      id: 1,
+      title: "Kist-ul Hindi",
+      price: 400000,
+      image: CardImage2,
+      description: "Tibbio Tibomed kompaniyasi sog‘liqni saqlash sohasida o‘zining yuqori sifatli biologik faol qo‘shimchalari bilan tanilgan. Ushbu kompaniya tomonidan ishlab chiqarilgan Omega-3 kapsulalari – sog‘lom turmush tarzini qo‘llab-quvvatlashga qaratilgan mukammal mahsulotdir. Omega-3 ning ilmiy asoslangan foydalari va Tibbio Tibomed kompaniyasining mukammallikka intilishi bu mahsulotni sog‘lom hayot uchun ajralmas tanlovga aylantiradi.",
+    },
+
+    {
+      id: 2,
+      title: "Omega-3",
+      price: 399000,
+      image: CardImage,
+      description: "Miya faoliyati: Xotira va konsentratsiyani yaxshilaydi, stressni kamaytirishga yordam beradi.Ko'z sog'ligi: Ko'rishni mustahkamlaydi, ko‘z charchoqlarini kamaytiradi. Immunitet: Tabiiy himoya tizimini kuchaytirib, kasalliklarga qarshi kurashishda yordam beradi. Teri va soch: Teri elastikligini oshirib, yosh va sog‘lom ko‘rinishni saqlaydi; sochlarni mustahkam va yorqin qiladi.",
+    },
+
+    {
+      id: 3,
+      title: "Qora sedana",
+      price: 399000 ,
+      image: cardImage3,
+      description: "Qora sedana – qadimiy davolovchi o‘simlik bo‘lib, uning urug‘lari ko‘plab xalqlarning an’anaviy tabobatlarida keng qo‘llanib kelinadi. U asosan Janubi-G‘arbiy Osiyo, Yaqin Sharq, Hindiston va Shimoliy Afrika hududlarida o‘sadi. Qur'oni Karimda ham qora sedana (Habba Sauda) haqida zikr qilingan va bu o‘simlikning shifobaxsh xususiyatlari Payg‘ambarimiz Muhammad (s.a.v.) hadislarida maqtov bilan tilga olingan.",
+    },
+    {
+      id: 4,
+      title: "Kist-ul Hindi",
+      price: 400000,
+      image: CardImage2,
+      description: "Tibbio Tibomed kompaniyasi sog‘liqni saqlash sohasida o‘zining yuqori sifatli biologik faol qo‘shimchalari bilan tanilgan. Ushbu kompaniya tomonidan ishlab chiqarilgan Omega-3 kapsulalari – sog‘lom turmush tarzini qo‘llab-quvvatlashga qaratilgan mukammal mahsulotdir. Omega-3 ning ilmiy asoslangan foydalari va Tibbio Tibomed kompaniyasining mukammallikka intilishi bu mahsulotni sog‘lom hayot uchun ajralmas tanlovga aylantiradi.",
+    },
   ];
+
 
   useEffect(() => {
     const countArea = document.querySelector(".count-area");
