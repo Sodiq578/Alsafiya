@@ -9,7 +9,7 @@ import HomePage from "./pages/HomePage";
 import BasketPage from "./pages/BasketPage";
 import CategoryPage from "./pages/CategoryPage";
 import ForPage from "./pages/ForPage";
-import ProfilePage from "./pages/ProfilePage"; // Profil sahifasini import qilish
+import ProfilePage from "./pages/ProfilePage"; // Profile page import
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import LoadingScreen from "./LoadingScreen";
@@ -27,9 +27,10 @@ const App = () => {
     checkScreenSize();
     window.addEventListener("resize", checkScreenSize);
 
+    // Simulate a 1-second loading time
     const loadingTimeout = setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 100); // Loading will be shown for exactly 1 second
 
     return () => {
       window.removeEventListener("resize", checkScreenSize);
@@ -51,7 +52,7 @@ const App = () => {
           color: "red",
         }}
       >
-        Ushbu sayt faqat mobil qurilmalarda ishlaydi.
+        This site works only on mobile devices.
       </div>
     );
   }
@@ -65,7 +66,7 @@ const App = () => {
         <Route path="/basket" element={<BasketPage />} />
         <Route path="/categories" element={<CategoryPage />} />
         <Route path="/product/:id" element={<ForPage />} />
-        <Route path="/profile" element={<ProfilePage />} /> {/* Profil yo'nalishi */}
+        <Route path="/profile" element={<ProfilePage />} /> {/* Profile route */}
       </Routes>
       <Footer />
     </Router>

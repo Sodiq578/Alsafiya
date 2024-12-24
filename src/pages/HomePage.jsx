@@ -9,6 +9,10 @@ import { AiOutlineEye } from "react-icons/ai";
 import Logo from "../assets/logo2.svg";
 import { FaBuilding, FaBox, FaUsers, FaHandshake } from "react-icons/fa";
 
+import { FaShieldAlt, FaLungs, FaBrain, FaUtensils, FaLeaf, FaTint } from 'react-icons/fa';  // Updated icon imports
+
+
+
 const HomePage = () => {
   const navigate = useNavigate();
   const [isImageModalOpen, setImageModalOpen] = useState(false);
@@ -25,9 +29,9 @@ const HomePage = () => {
 
   const [counters, setCounters] = useState([
     { id: 1, icon: <FaBuilding size={60} color="#19524B" />, title: "Filiallar", value: 0, target: 4 },
-    { id: 2, icon: <FaBox size={60} color="#19524B" />, title: "Mahsulotlar", value: 0, target: 8000 },
-    { id: 3, icon: <FaUsers size={60} color="#19524B" />, title: "Mijozlarimiz", value: 0, target: 7420 },
-    { id: 4, icon: <FaHandshake size={60} color="#19524B" />, title: "Hamkorlar", value: 0, target: 23 },
+    { id: 2, icon: <FaBox size={60} color="#19524B" />, title: "Mahsulotlar", value: 0, target: 2000 },
+    { id: 3, icon: <FaUsers size={60} color="#19524B" />, title: "Mijozlarimiz", value: 0, target: 93468 },
+    { id: 4, icon: <FaHandshake size={60} color="#19524B" />, title: "Hamkorlar", value: 0, target: 100 },
   ]);
 
   const cards = [
@@ -155,17 +159,21 @@ const HomePage = () => {
       {isUserModalOpen && (
         <div className="user-modal">
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-          <h2 className="modal-title">Batafsil ma'lumot olish uchun</h2>
+          <h2 className="modal-title">Mutaxasislar tomonidan  
+          Bepul Konsultatsiya olish uchun! </h2>
+          <p className="modal-p">Sizni qiziqtirgan savollarga javob beriladi. </p>
+
+          
 
             <input
               type="text"
-              placeholder="Ismingizni kiriting"
+              placeholder="Ismingizni qoldiring !"
               value={userData.name}
               onChange={(e) => setUserData((prev) => ({ ...prev, name: e.target.value }))}
             />
             <input
               type="tel"
-              placeholder="Telefon raqamingizni kiriting"
+              placeholder="Telefon raqamingizni qoldiring !"
               value={userData.phone}
               onChange={handlePhoneChange}
               maxLength="13"
@@ -197,6 +205,34 @@ const HomePage = () => {
         ))}
       </div>
 
+
+      <div className="malumotlar">
+      <h2 className="malumotlar__title">Qora Sedana Yo‘gi - Turkiya Mahsuloti</h2>
+      <p className="malumotlar__subtitle">
+        Hoziroq qo‘ng‘iroq qiling va <strong>BEPUL</strong> konsultatsiya oling
+      </p>
+      <ul className="malumotlar__list">
+        <li className="malumotlar__item">
+          <FaShieldAlt className="malumotlar__icon" /> Immunitetni mustahkamlaydi
+        </li>
+        <li className="malumotlar__item">
+          <FaLungs className="malumotlar__icon" /> O‘pka - bronx kasalliklarini oldini oladi
+        </li>
+        <li className="malumotlar__item">
+          <FaBrain className="malumotlar__icon" /> Asab tizimini va miyani tiklaydi
+        </li>
+        <li className="malumotlar__item">
+          <FaUtensils className="malumotlar__icon" /> Ovqat hazm qilish tizimini yaxshilaydi
+        </li>
+        <li className="malumotlar__item">
+          <FaLeaf className="malumotlar__icon" /> Sochlarni o‘stiradi va mustahkamlaydi {/* FaHair o'rniga FaLeaf */}
+        </li>
+        <li className="malumotlar__item">
+          <FaTint className="malumotlar__icon" /> Qondagi xolesterin miqdorini kamaytiradi
+        </li>
+      </ul>
+    </div>
+
       <div className="count-area">
         <div className="container">
           <h2 className="title">Statistika</h2>
@@ -213,6 +249,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+
 
       {isImageModalOpen && (
         <div className="image-modal" onClick={closeImageModal}>

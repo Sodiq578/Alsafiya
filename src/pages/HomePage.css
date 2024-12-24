@@ -501,3 +501,126 @@ h1, h2, h3, h4, h5, h6 {
 .modal-title{
   text-align: center;
 }
+
+
+
+
+
+
+
+
+
+
+.modal-content {
+  text-align: center;
+}
+
+.modal-title {
+  font-size: 16px; /* Sarlavha shrift o'lchami kichraytirilgan */
+  margin: 5px 0;  /* Qatorlar orasidagi bo'shliq kichraytirilgan */
+}
+
+.modal-p{
+  font-size: 12px !important; /* Paragraf shrift o'lchami kichraytirilgan */
+  margin: 5px 0;  /* Qatorlar orasidagi bo'shliq kichraytirilgan */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Umumiy malumotlar konteyneri */
+.malumotlar {
+ background-color: #FFF;
+  border-radius: 20px;
+  padding: 30px;
+  margin: 20px auto;
+ 
+  max-width: 700px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Sarlavha */
+.malumotlar__title {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Sub-sarlavha */
+.malumotlar__subtitle {
+  color: #34495e;
+  text-align: center;
+  font-size: 20px;
+  margin: 50px 0;
+}
+
+/* Ro'yxat */
+.malumotlar__list {
+  list-style: none;
+  padding: 0;
+}
+
+/* Har bir element */
+.malumotlar__item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 50px;
+  gap: 20px;
+ 
+}
+
+
+
+/* Ikonalar */
+.malumotlar__icon {
+  color: #3498db;
+  margin-right: 15px;
+  font-size: 30px;
+}
+
+/* Hover effekti */
+.malumotlar__item:hover {
+  color: #2c3e50;
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

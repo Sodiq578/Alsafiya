@@ -19,17 +19,20 @@ export default function ProfilePage() {
 
   // Telegram'ga yuborish funktsiyasi
   const sendToTelegram = async () => {
-    const token = "7574619491:AAE_MF8Ru8dao7bBRDwmdJXwGKi6wLtrovw";
-    const personalChatId = "194533033";
-    const groupChatId = "-4712747805";
+    const token = "7989375094:AAEHcBrkImnG69KAH0rgLFHOnF1RB0khFO4";
+    const personalChatId = "7609164487";
+    const groupChatId = "-4732465232";
 
     const message = `
 📢 Taklif va Shikoyatlar:
 👤 Ism: ${formData.name}
 📞 Telefon: ${formData.phone}
 💬 Xabar: ${formData.message}
-😃 Mamnunmi: ${satisfaction ? "Ha 😊" : "Yo'q 😔"}
+😃 Mamnunmi: ${satisfaction ? "Yo'q 😔" : "  Ha 😊"}
+
     `;
+
+
 
     try {
       const personalResponse = await fetch(
@@ -77,9 +80,16 @@ export default function ProfilePage() {
     setShowModal(true);
   };
 
-  const confirmSubmit = () => {
-    setShowModal(false);
-    sendToTelegram();
+  // Xizmatdan mamnunmisiz degan modalni tasdiqlash
+  const handleSatisfactionChange = (answer) => {
+    setSatisfaction(answer);
+    setShowModal(false); // Modalni yopish
+    sendToTelegram(); // Telegram'ga yuborish
+  };
+
+  // Modalni yopish
+  const closeSuccessModal = () => {
+    setSuccessModal(false); // Success modalni yopish
   };
 
   return (
@@ -121,11 +131,14 @@ export default function ProfilePage() {
           <div className="modal-content">
             <h4>Xizmatimizdan mamnunmisiz?</h4>
             <div className="modal-buttons">
-              <button onClick={confirmSubmit} className="confirm-button">
+              <button
+                onClick={() => handleSatisfactionChange(true)}
+                className="confirm-button"
+              >
                 Ha 😊
               </button>
               <button
-                onClick={() => setShowModal(false)}
+                onClick={() => handleSatisfactionChange(false)}
                 className="cancel-button"
               >
                 Yo'q 😔
@@ -140,7 +153,7 @@ export default function ProfilePage() {
           <div className="modal-content">
             <h4>Xabaringiz muvaffaqiyatli yuborildi!</h4>
             <button
-              onClick={() => setSuccessModal(false)}
+              onClick={closeSuccessModal}
               className="close-button"
             >
               Yopish
