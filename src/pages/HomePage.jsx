@@ -233,6 +233,48 @@ const HomePage = () => {
       </ul>
     </div>
 
+
+
+    <div class="video-container">
+  <iframe
+    src="https://www.youtube.com/embed/RKbqazwsVlY?si=M7oWFICRRUFyFYgW"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+  ></iframe>
+
+  <iframe
+    src="https://www.youtube.com/embed/jZE37QKEP6o?si=N8l5aDLOBvmlogIj"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+  ></iframe>
+
+  <iframe
+    src="https://www.youtube.com/embed/0q6NPFOyetA?si=niTq3qhUIW9GUqLX"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+  ></iframe>
+
+  <iframe
+    src="https://www.youtube.com/embed/t2q_pUtsB88?si=Qdy0QknwiwzhSlWe"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+  ></iframe>
+
+  <iframe
+    src="https://www.youtube.com/embed/NVYKz5yAxMw?si=9mqcydKBikllKOzr"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+  ></iframe>
+</div>
+
+
+
+
       <div className="count-area">
         <div className="container">
           <h2 className="title">Statistika</h2>
